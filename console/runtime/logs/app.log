@@ -1,0 +1,409 @@
+2017-01-08 03:04:48 [-][-][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'Migration failed. Directory specified in migrationPath doesn't exist: @yii/rbac/migrations;' in D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php:103
+Stack trace:
+#0 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\MigrateController.php(168): yii\console\controllers\BaseMigrateController->beforeAction(Object(yii\base\InlineAction))
+#1 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Controller.php(152): yii\console\controllers\MigrateController->beforeAction(Object(yii\base\InlineAction))
+#2 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('', Array)
+#3 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Module.php(454): yii\console\Controller->runAction('', Array)
+#4 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate', Array)
+#5 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate', Array)
+#6 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#7 D:\wamp\wamp64\www\site\yimicake\yii(27): yii\base\Application->run()
+#8 {main}
+2017-01-08 03:04:48 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\hp\\AppData\\Roaming'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'HP-PC'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\hp'
+    'LOCALAPPDATA' => 'C:\\Users\\hp\\AppData\\Local'
+    'LOGONSERVER' => '\\\\HP-PC'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'D:\\perl\\site\\bin;D:\\perl\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;D:\\git安装\\Git\\cmd;D:\\wamp\\wamp64\\bin\\php\\php5.6.16;C:\\ProgramData\\ComposerSetup\\bin;D:\\wamp\\wamp64\\bin\\php\\php5.6.16;D:\\node.js\\;;C:\\Users\\hp\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\hp\\AppData\\Roaming\\npm'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PHP_COMMAND' => 'php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 61 Stepping 4, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '3d04'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\;E:\\svn\\PowerShellModules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SESSIONNAME' => 'Console'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\hp\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\hp\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'hp-PC'
+    'USERNAME' => 'hp'
+    'USERPROFILE' => 'C:\\Users\\hp'
+    'VISUALSVN_SERVER' => 'E:\\svn\\'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'YII_PATH' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\'
+    'PHP_SELF' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'SCRIPT_NAME' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'SCRIPT_FILENAME' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'PATH_TRANSLATED' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1483844688.777
+    'REQUEST_TIME' => 1483844688
+    'argv' => [
+        0 => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+        1 => 'migrate'
+        2 => '--migrationPath=@yii/rbac/migrations;'
+    ]
+    'argc' => 3
+]
+2017-01-08 03:07:05 [-][-][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'You should configure "authManager" component to use database before executing this migration.' in D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\rbac\migrations\m140506_102106_rbac_init.php:27
+Stack trace:
+#0 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\rbac\migrations\m140506_102106_rbac_init.php(45): m140506_102106_rbac_init->getAuthManager()
+#1 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(651): m140506_102106_rbac_init->up()
+#2 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(163): yii\console\controllers\BaseMigrateController->migrateUp('m140506_102106_...')
+#3 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#4 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#5 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#6 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('', Array)
+#7 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Module.php(454): yii\console\Controller->runAction('', Array)
+#8 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate', Array)
+#9 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate', Array)
+#10 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#11 D:\wamp\wamp64\www\site\yimicake\yii(27): yii\base\Application->run()
+#12 {main}
+2017-01-08 03:07:03 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\hp\\AppData\\Roaming'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'HP-PC'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\hp'
+    'LOCALAPPDATA' => 'C:\\Users\\hp\\AppData\\Local'
+    'LOGONSERVER' => '\\\\HP-PC'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'D:\\perl\\site\\bin;D:\\perl\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;D:\\git安装\\Git\\cmd;D:\\wamp\\wamp64\\bin\\php\\php5.6.16;C:\\ProgramData\\ComposerSetup\\bin;D:\\wamp\\wamp64\\bin\\php\\php5.6.16;D:\\node.js\\;;C:\\Users\\hp\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\hp\\AppData\\Roaming\\npm'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PHP_COMMAND' => 'php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 61 Stepping 4, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '3d04'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\;E:\\svn\\PowerShellModules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SESSIONNAME' => 'Console'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\hp\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\hp\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'hp-PC'
+    'USERNAME' => 'hp'
+    'USERPROFILE' => 'C:\\Users\\hp'
+    'VISUALSVN_SERVER' => 'E:\\svn\\'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'YII_PATH' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\'
+    'PHP_SELF' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'SCRIPT_NAME' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'SCRIPT_FILENAME' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'PATH_TRANSLATED' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1483844823.3387
+    'REQUEST_TIME' => 1483844823
+    'argv' => [
+        0 => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+        1 => 'migrate'
+        2 => '--migrationPath=@yii/rbac/migrations'
+    ]
+    'argc' => 3
+]
+2017-01-08 03:08:04 [-][-][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'You should configure "authManager" component to use database before executing this migration.' in D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\rbac\migrations\m140506_102106_rbac_init.php:27
+Stack trace:
+#0 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\rbac\migrations\m140506_102106_rbac_init.php(45): m140506_102106_rbac_init->getAuthManager()
+#1 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(651): m140506_102106_rbac_init->up()
+#2 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(163): yii\console\controllers\BaseMigrateController->migrateUp('m140506_102106_...')
+#3 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#4 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#5 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#6 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('', Array)
+#7 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Module.php(454): yii\console\Controller->runAction('', Array)
+#8 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate', Array)
+#9 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate', Array)
+#10 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#11 D:\wamp\wamp64\www\site\yimicake\yii(27): yii\base\Application->run()
+#12 {main}
+2017-01-08 03:08:02 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\hp\\AppData\\Roaming'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'HP-PC'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\hp'
+    'LOCALAPPDATA' => 'C:\\Users\\hp\\AppData\\Local'
+    'LOGONSERVER' => '\\\\HP-PC'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'D:\\perl\\site\\bin;D:\\perl\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;D:\\git安装\\Git\\cmd;D:\\wamp\\wamp64\\bin\\php\\php5.6.16;C:\\ProgramData\\ComposerSetup\\bin;D:\\wamp\\wamp64\\bin\\php\\php5.6.16;D:\\node.js\\;;C:\\Users\\hp\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\hp\\AppData\\Roaming\\npm'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PHP_COMMAND' => 'php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 61 Stepping 4, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '3d04'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\;E:\\svn\\PowerShellModules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SESSIONNAME' => 'Console'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\hp\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\hp\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'hp-PC'
+    'USERNAME' => 'hp'
+    'USERPROFILE' => 'C:\\Users\\hp'
+    'VISUALSVN_SERVER' => 'E:\\svn\\'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'YII_PATH' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\'
+    'PHP_SELF' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'SCRIPT_NAME' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'SCRIPT_FILENAME' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'PATH_TRANSLATED' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1483844882.7331
+    'REQUEST_TIME' => 1483844882
+    'argv' => [
+        0 => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+        1 => 'migrate'
+        2 => '--migrationPath=@yii/rbac/migrations'
+    ]
+    'argc' => 3
+]
+2017-01-08 10:25:06 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1051 Unknown table 'yimi.ym_auth_assignment'' in D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\db\Command.php:844
+Stack trace:
+#0 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\db\Command.php(844): PDOStatement->execute()
+#1 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\db\Migration.php(291): yii\db\Command->execute()
+#2 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\rbac\migrations\m140506_102106_rbac_init.php(145): yii\db\Migration->dropTable('{{%auth_assignm...')
+#3 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(679): m140506_102106_rbac_init->down()
+#4 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(224): yii\console\controllers\BaseMigrateController->migrateDown('m140506_102106_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionDown(1)
+#6 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('down', Array)
+#9 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Module.php(454): yii\console\Controller->runAction('down', Array)
+#10 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/down', Array)
+#11 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/down', Array)
+#12 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 D:\wamp\wamp64\www\site\yimicake\yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S02]: Base table or view not found: 1051 Unknown table 'yimi.ym_auth_assignment'
+The SQL being executed was: DROP TABLE `ym_auth_assignment`' in D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\db\Schema.php:631
+Stack trace:
+#0 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'DROP TABLE `ym_...')
+#1 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\db\Migration.php(291): yii\db\Command->execute()
+#2 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\rbac\migrations\m140506_102106_rbac_init.php(145): yii\db\Migration->dropTable('{{%auth_assignm...')
+#3 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(679): m140506_102106_rbac_init->down()
+#4 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(224): yii\console\controllers\BaseMigrateController->migrateDown('m140506_102106_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionDown(1)
+#6 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('down', Array)
+#9 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Module.php(454): yii\console\Controller->runAction('down', Array)
+#10 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/down', Array)
+#11 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/down', Array)
+#12 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 D:\wamp\wamp64\www\site\yimicake\yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1051
+    [2] => Unknown table 'yimi.ym_auth_assignment'
+)
+
+2017-01-08 10:24:58 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\hp\\AppData\\Roaming'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'HP-PC'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\hp'
+    'LOCALAPPDATA' => 'C:\\Users\\hp\\AppData\\Local'
+    'LOGONSERVER' => '\\\\HP-PC'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'D:\\perl\\site\\bin;D:\\perl\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;D:\\git安装\\Git\\cmd;D:\\wamp\\wamp64\\bin\\php\\php5.6.16;C:\\ProgramData\\ComposerSetup\\bin;D:\\wamp\\wamp64\\bin\\php\\php5.6.16;D:\\node.js\\;;C:\\Users\\hp\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\hp\\AppData\\Roaming\\npm'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PHP_COMMAND' => 'php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 61 Stepping 4, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '3d04'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\;E:\\svn\\PowerShellModules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SESSIONNAME' => 'Console'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\hp\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\hp\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'hp-PC'
+    'USERNAME' => 'hp'
+    'USERPROFILE' => 'C:\\Users\\hp'
+    'VISUALSVN_SERVER' => 'E:\\svn\\'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'YII_PATH' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\'
+    'PHP_SELF' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'SCRIPT_NAME' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'SCRIPT_FILENAME' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'PATH_TRANSLATED' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1483871098.9386
+    'REQUEST_TIME' => 1483871098
+    'argv' => [
+        0 => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+        1 => 'migrate/down'
+        2 => '--migrationPath=@yii/rbac/migrations/'
+    ]
+    'argc' => 3
+]
+2017-01-08 10:25:11 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1051 Unknown table 'yimi.ym_auth_assignment'' in D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\db\Command.php:844
+Stack trace:
+#0 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\db\Command.php(844): PDOStatement->execute()
+#1 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\db\Migration.php(291): yii\db\Command->execute()
+#2 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\rbac\migrations\m140506_102106_rbac_init.php(145): yii\db\Migration->dropTable('{{%auth_assignm...')
+#3 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(679): m140506_102106_rbac_init->down()
+#4 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(224): yii\console\controllers\BaseMigrateController->migrateDown('m140506_102106_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionDown(1)
+#6 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('down', Array)
+#9 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Module.php(454): yii\console\Controller->runAction('down', Array)
+#10 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/down', Array)
+#11 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/down', Array)
+#12 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 D:\wamp\wamp64\www\site\yimicake\yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S02]: Base table or view not found: 1051 Unknown table 'yimi.ym_auth_assignment'
+The SQL being executed was: DROP TABLE `ym_auth_assignment`' in D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\db\Schema.php:631
+Stack trace:
+#0 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'DROP TABLE `ym_...')
+#1 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\db\Migration.php(291): yii\db\Command->execute()
+#2 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\rbac\migrations\m140506_102106_rbac_init.php(145): yii\db\Migration->dropTable('{{%auth_assignm...')
+#3 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(679): m140506_102106_rbac_init->down()
+#4 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(224): yii\console\controllers\BaseMigrateController->migrateDown('m140506_102106_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionDown(1)
+#6 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('down', Array)
+#9 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Module.php(454): yii\console\Controller->runAction('down', Array)
+#10 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate/down', Array)
+#11 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate/down', Array)
+#12 D:\wamp\wamp64\www\site\yimicake\vendor\yiisoft\yii2\base\Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 D:\wamp\wamp64\www\site\yimicake\yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1051
+    [2] => Unknown table 'yimi.ym_auth_assignment'
+)
+
+2017-01-08 10:25:08 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\hp\\AppData\\Roaming'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'HP-PC'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\hp'
+    'LOCALAPPDATA' => 'C:\\Users\\hp\\AppData\\Local'
+    'LOGONSERVER' => '\\\\HP-PC'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'D:\\perl\\site\\bin;D:\\perl\\bin;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;D:\\git安装\\Git\\cmd;D:\\wamp\\wamp64\\bin\\php\\php5.6.16;C:\\ProgramData\\ComposerSetup\\bin;D:\\wamp\\wamp64\\bin\\php\\php5.6.16;D:\\node.js\\;;C:\\Users\\hp\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\hp\\AppData\\Roaming\\npm'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PHP_COMMAND' => 'php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 61 Stepping 4, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '3d04'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\;E:\\svn\\PowerShellModules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SESSIONNAME' => 'Console'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\hp\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\hp\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'hp-PC'
+    'USERNAME' => 'hp'
+    'USERPROFILE' => 'C:\\Users\\hp'
+    'VISUALSVN_SERVER' => 'E:\\svn\\'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'YII_PATH' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\'
+    'PHP_SELF' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'SCRIPT_NAME' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'SCRIPT_FILENAME' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'PATH_TRANSLATED' => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1483871108.7002
+    'REQUEST_TIME' => 1483871108
+    'argv' => [
+        0 => 'D:\\wamp\\wamp64\\www\\site\\yimicake\\yii'
+        1 => 'migrate/down'
+        2 => '--migrationPath=@yii/rbac/migrations/'
+    ]
+    'argc' => 3
+]

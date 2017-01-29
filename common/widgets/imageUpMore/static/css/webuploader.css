@@ -1,0 +1,63 @@
+
+/**
+原生样式
+ */
+.webuploader-container {
+	position: relative;
+}
+.webuploader-element-invisible {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px,1px,1px,1px);
+}
+.webuploader-pick {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	background: #00b7ee;
+	padding: 4px 5px;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	overflow: hidden;
+}
+.webuploader-pick-hover {
+	background: #00a2d4;
+}
+
+.webuploader-pick-disable {
+	opacity: 0.6;
+	pointer-events:none;
+}
+
+
+.thumbnail{
+	width: 200px!important;
+	float: left!important;
+	margin-left: 20px!important;
+}
+.up-box{
+	float: right!important;
+}
+.progress{
+	background: #65CEA7!important;
+	height: 10px;
+}
+
+#uploader-demo{
+	overflow: hidden;
+}
+
+
+input[type=file]{
+	background-color: #00b7ee!important;
+	display: block !important;
+	width: 1px !important;
+}
+
+.tab-content .active{
+	display: inline-block!important;
+	width: 100%!important;
+}
+
+
