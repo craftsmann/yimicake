@@ -3,7 +3,8 @@
  * @see https://github.com/craftsmann.
  * @author craftsmann <m13993334619@163.com>
  */
-//echo '<pre>';print_r($res['0']['cate']['name']);echo '</pre>';die();
+use yii\helpers\Url;
+\frontend\assets\AppAsset::addScript($this,'@web/static/js/obj_goods.js');
 ?>
 
 <!--内容开始-->
@@ -53,14 +54,14 @@
                 <span class="fl">数量:</span>
                 <p>
                     <div class="s-num">
-                       <input type="button" value="-"><input style="width: 30px;text-align: center" type="text" value="1" readonly><input type="button" value="+">
+                       <input class="s-reduce" type="button" value="-"><input id="s-num" index="<?=$v['id']?>" style="width: 30px;text-align: center" type="text" value="1" readonly><input class="s-add" type="button" value="+">
                     </div>
                 </p>
             </div>
 
             <div class="s-detail clear" style="margin-top: 40px">
                 <a class="btn btn-cart fr">立即购买</a>
-                <a class="btn btn-pay fr" style="margin-right: 20px">购物车</a>
+                <a id="s-car" class="btn btn-pay fr" style="margin-right: 20px" title="加入购物车^_^" href="<?=Url::to(['goods/addcar'])?>">购物车</a>
             </div>
         </div>
     </div>
@@ -189,4 +190,9 @@
 </div>
 
 <!--内容结束-->
+
+<?php
+ $js = '$("#s-car").Shop()';
+ $this->registerJs($js,\yii\web\View::POS_END);
+?>
 
