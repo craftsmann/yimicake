@@ -46,7 +46,7 @@ $data = \yii\helpers\ArrayHelper::map($cate,'id','name');
 
 <!--     <form class="form-horizontal">-->
          <?php $form = ActiveForm::begin([
-         'options' => ['class' => 'form-horizontal',"enctype" => "multipart/form-data"],
+         'options' => ['action'=>'','class' => 'form-horizontal',"enctype" => "multipart/form-data"],
          'fieldConfig'=>[
             'template'=> "<div class=\"col-sm-2 text-right\">{label}\n</div><div class=\"col-sm-8 text-left\">{input}</div>\n{error}",
          ]
@@ -146,9 +146,6 @@ $data = \yii\helpers\ArrayHelper::map($cate,'id','name');
                                 'clientOptions' => [
                                     'lang' => 'zh_cn',
                                      'minHeight'=> 400, // pixels
-                                    'imageManagerJson' => ['/redactor/upload/image-json'],
-                                    'imageUpload' => ['/redactor/upload/image'],
-                                    'fileUpload' => ['/redactor/upload/file'],
                                     'plugins' => ['clips', 'fontcolor','imagemanager','fullscreen','table']
                                 ]
                             ]);

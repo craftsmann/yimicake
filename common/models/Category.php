@@ -46,7 +46,7 @@ class Category extends \yii\db\ActiveRecord
             'id' => 'ID',
             'pid' => 'Pid',
             'name' => 'Name',
-            'description' => 'Description',
+            'description' => '描述',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

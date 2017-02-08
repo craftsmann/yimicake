@@ -53,7 +53,7 @@ class OprateLog
         $models->methods = $methods?$methods:'';
         $models->oprater = $username;
         $models->description = $content;
-        if(!$models->save()){var_dump($models->errors);die();};
+        if(!$models->save()){var_dump($models->errors);};
     }
 
 }

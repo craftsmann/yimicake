@@ -19,6 +19,7 @@ use yii\base\Exception;
  * @property integer $marketprice
  * @property integer $trueprice
  * @property string $words
+ * @property string $detail
  * @property string $material
  * @property string $package
  * @property integer $value
@@ -28,13 +29,14 @@ use yii\base\Exception;
  * @property integer $holiday
  * @property integer $isshow
  * @property integer $istime
+ * @property integer $isrecommend
  * @property string $midimg
  * @property string $smimg1
  * @property string $smimg2
  * @property string $created_at
  * @property string $updated_at
  */
-class GoodsForm extends \yii\db\ActiveRecord
+class GoodsForm extends BaseModel
 {
     const EVENT_ADD_GOODS='addGoods';
     public $title;
@@ -53,6 +55,7 @@ class GoodsForm extends \yii\db\ActiveRecord
     public $holiday;
     public $isshow;
     public $istime;
+    public $isrecommend;
     public $isbanner;
     public $content;
     public $images;
@@ -64,7 +67,7 @@ class GoodsForm extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'cateid', 'num','content','detail','shopprice', 'marketprice','package', 'trueprice', 'words'], 'required'],
-            [['cateid', 'num','value', 'object', 'models', 'color', 'holiday', 'isshow', 'istime','isbanner'], 'integer'],
+            [['cateid', 'num','value', 'object', 'models', 'color', 'holiday', 'isshow', 'istime','isbanner','isrecommend'], 'integer'],
             [['shopprice', 'marketprice', 'trueprice',],'double'],
             [['title', 'words', 'material', 'package'], 'string', 'max' => 255],
             ['images','string'],
@@ -96,6 +99,7 @@ class GoodsForm extends \yii\db\ActiveRecord
             'holiday' => '节日',
             'isshow' => '上架',
             'istime' => '促销',
+            'isrecommend'=>'推荐',
             'isbanner'=>'轮播',
             'images' =>'展示图',
             'content'=>'商品详情',
@@ -110,37 +114,42 @@ class GoodsForm extends \yii\db\ActiveRecord
      */
     public function addHandle(){
 
+
+        $shop = new Goods();
         //开启事务
+        //echo '<pre>';print_r($goods->description);echo '</pre>';die();
         $trans = Yii::$app->db->beginTransaction();
         try{
-            $goods = new Goods();
-            $goods->title = $this->title;
-            $goods->cateid = $this->cateid;
-            $goods->num   = $this->num;
-            $goods->shopprice = $this->shopprice;
-            $goods->marketprice=$this->marketprice;
-            $goods->trueprice = $this->trueprice;
-            $goods->words  = $this->words;
-            $goods->detail = $this->detail;
-            $goods->package = $this->package?:'';
-            $goods->material= $this->material?:'';
-            $goods->value  = $this->value?:'';
-            $goods->object = $this->object?:'';
-            $goods->models = $this->models?:'';
-            $goods->color  = $this->color?:'';
-            $goods->holiday= $this->holiday?:'';
-            $goods->isshow = $this->isshow?:10;
-            $goods->istime = $this->istime?:1;
-            $goods->isbanner = $this->isbanner?:1;
+            $shop->title = $this->title;
+            $shop->cateid = $this->cateid;
+            $shop->num   = $this->num;
+            $shop->shopprice = $this->shopprice;
+            $shop->marketprice=$this->marketprice;
+            $shop->trueprice = $this->trueprice;
+            $shop->words  = $this->words;
+            $shop->detail = $this->detail;
+            $shop->package = $this->package?:'';
+            $shop->material= $this->material?:'';
+            $shop->value  = $this->value?:'';
+            $shop->object = $this->object?:'';
+            $shop->models = $this->models?:'';
+            $shop->color  = $this->color?:'';
+            $shop->holiday= $this->holiday?:'';
+            $shop->isshow = $this->isshow?:10;
+            $shop->isrecommend = $this->isrecommend?:1;
+            $shop->istime = $this->istime?:1;
+            $shop->isbanner = $this->isbanner?:1;
 
             $im = array_values(array_unique(explode('|',$this->images)));
-            $goods->midimg = $im[0];
-            $goods->smimg1 = $im[1];
-            $goods->smimg2 = isset($im[2])?$im[2]:'';
-            if(!$goods->save()){
-                var_dump($goods->getErrors());die();
+            $shop->midimg = $im[0];
+            $shop->smimg1 = $im[1];
+            $shop->smimg2 = isset($im[2])?$im[2]:'';
+
+           // echo '<pre>';print_r($shop->getValidators());echo '</pre>';die();
+            if(!$shop->save()){
+                var_dump($shop->getErrors());die();
             }
-            $event = array_merge(['content'=>$this->content],$goods->getAttributes());
+            $event = array_merge(['content'=>$this->content],$shop->getAttributes());
             $this->addEvent($event);
             $trans->commit();
             return true;
@@ -158,6 +167,7 @@ class GoodsForm extends \yii\db\ActiveRecord
     }
 
     protected function addContent($event){
+
         $id = $event->data['id'];
         $con = new Detail();
         $con->goods_id = $id;

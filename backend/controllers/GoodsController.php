@@ -32,6 +32,7 @@ class GoodsController extends BaseController
             'salesnum'   =>Yii::$app->request->post('salesnum'),
             'isshow'     =>Yii::$app->request->post('isshow'),
             'istime'     =>Yii::$app->request->post('istime'),
+            'isrecommend'=>Yii::$app->request->post('isrecommend'),
             'isbanner'   =>Yii::$app->request->post('isbanner'),
         ])->joinWith('cate')->orderBy([Goods::tableName().'.created_at'=>SORT_DESC]);
         $count = clone $query;
@@ -40,8 +41,9 @@ class GoodsController extends BaseController
 
         $isshow = Yii::$app->request->post('isshow')!==''?Yii::$app->request->post('isshow'):'';
         $istime = Yii::$app->request->post('istime')!==''?Yii::$app->request->post('istime'):'';
+        $isrecommend = Yii::$app->request->post('isrecommend')!==''?Yii::$app->request->post('isrecommend'):'';
         $isbanner = Yii::$app->request->post('isbanner')!==''?Yii::$app->request->post('isbanner'):'';
-        return $this->render('list',['model'=>$model,'pages'=>$pages,'isshow'=>$isshow,'istime'=>$istime,'isbanner'=>$isbanner]);
+        return $this->render('list',['model'=>$model,'pages'=>$pages,'isshow'=>$isshow,'istime'=>$istime,'isbanner'=>$isbanner,'isrecommend'=>$isrecommend]);
     }
 
     //修改状态
@@ -68,6 +70,16 @@ class GoodsController extends BaseController
                         Goods::updateAll(['isbanner'=>1],'id='.(int)$id.'');
                     }else{
                         Goods::updateAll(['isbanner'=>10],'id='.(int)$id.'');
+                    };
+                    return json_encode($success);
+                    break;
+                case 'isrecommend':
+                    $id = Yii::$app->request->get('id');
+                    $isrecommend = Yii::$app->request->get('isrecommend');
+                    if($isrecommend == 10){
+                        Goods::updateAll(['isrecommend'=>1],'id='.(int)$id.'');
+                    }else{
+                        Goods::updateAll(['isrecommend'=>10],'id='.(int)$id.'');
                     };
                     return json_encode($success);
                     break;
@@ -183,7 +195,7 @@ class GoodsController extends BaseController
 
         $form = new CateForm();
         if(Yii::$app->request->isPost){
-            if($form->load(Yii::$app->request->post())&&$form->addHandle()){
+            if($form->load(Yii::$app->request->post()) && $form->addHandle()){
                 return $this->redirect(['cate']);
             }
         }

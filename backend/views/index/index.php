@@ -32,7 +32,7 @@ $this->registerJS($js);
         <div class="row">
             <div class="col-md-12">
                 <!--statistics start-->
-                <div class="row state-overview pull-left" style="width: 543px;">
+                <div class="row state-overview pull-left" style="width: 515px;">
                     <div class="col-md-6 col-xs-12 col-sm-6">
                         <div class="panel purple">
                             <div class="symbol">

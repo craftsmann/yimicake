@@ -21,7 +21,7 @@ class CateForm extends BaseModel{
             [['name','pid'],'required'],
             ['pid','integer'],
             ['name','string','max' => 45],
-            ['description','string']
+            ['description','string','max'=>255]
         ];
     }
 

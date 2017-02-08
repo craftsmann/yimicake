@@ -156,7 +156,7 @@ $this->registerJS($js,\yii\web\View::POS_END);
                              </li>
                              <li>
                                  <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                     <img src="<?= isset(Yii::$app->user->identity->photo)?Yii::$app->user->identity->photo:'static/images/photos/user-avatar.png'?>" alt="">
+                                     <img src="<?= isset(Yii::$app->user->identity->photo)?'http://localhost/yimicake/frontend/web/'.Yii::$app->user->identity->photo:'static/images/photos/user-avatar.png'?>" alt="">
                                      <?= isset(Yii::$app->user->identity->username)?Yii::$app->user->identity->username:''?>
 
                                      <span class="caret"></span>

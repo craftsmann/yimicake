@@ -11,7 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'language' =>'ZH-cn',
+    'language' => 'zh-CN',
     //配置默认路由
     'defaultRoute' => 'index',
     'components' => [

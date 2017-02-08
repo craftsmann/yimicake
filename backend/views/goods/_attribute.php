@@ -42,6 +42,8 @@ $models = \yii\helpers\ArrayHelper::map($mod,'id','moname');
 
 <?=$form->field($model,'istime')->dropDownList(['10'=>'是','1'=>'否'],['prompt' => '|---请下拉选择'])?>
 
+<?=$form->field($model,'isrecommend')->dropDownList(['10'=>'是','1'=>'否'],['prompt' => '|---请下拉选择'])?>
+
 
 <?=$form->field($model,'isbanner')->dropDownList(['10'=>'是','1'=>'否'],['prompt' => '|---请下拉选择'])?>
 

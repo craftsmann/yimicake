@@ -42,63 +42,12 @@ $this->title = '伊米蛋糕屋';
             <div class="list-top">
                 店长推荐
             </div>
-            <div class="list-box" data-setting='{"speed":500,"chicktime":5000,"play":true}'>
+            <div class="list-box">
                 <div class="list_slide">
-                    <ul class="list-img" style="left:-305px">
-                        <li>
-                            <a href="#">
-                                <img src="static/images/recommend1.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="static/images/recommend1.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="static/images/recommend1.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="static/images/recommend1.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="static/images/recommend1.jpg">
-                            </a>
-                        </li>
+                    <ul class="list-img">
+                        <?= $this->render('_recommend')?>
                     </ul>
-
-                    <div class="list-btn clear">
-                            	<span class="list-prev fl">
-                            		<
-                            	</span>
-                        <span class="list-next fr">
-                            		>
-                            	</span>
-                    </div>
                 </div>
-            </div>
-
-        </div>
-        <div class="humanservice fl">
-            <div class="service-top">客服中心</div>
-            <div class="service-bottom">
-		 	  	   	    <span class="servicephone">
-		 	  	   	        <b class="fl" style="color:#1AAC7B">二十四小时服务热线(免长途费)</b>
-		 	  	   	        <b class="fl" style="color: #BD0C16">010-4521210-78921</b>
-		 	  	   	    </span>
-                <span class="serviceqq">
-		 	  	   	    	<b class="fl" style="color:#1AAC7B">在线客服</b><br/>
-		 	  	   	    	<b>
-		 	  	   	    		<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1791502202&site=qq&menu=yes">
-		 	  	   	    		<img src="static/images/qqchat.png" alt="qq交谈" title="qq交谈">
-		 	  	   	    		</a>
-		 	  	   	    	</b>
-		 	  	   	    </span>
             </div>
         </div>
     </div>
@@ -109,78 +58,8 @@ $this->title = '伊米蛋糕屋';
         </div>
         <div class="time-box">
             <ul>
-                <li>
-                    <a href="#">
-                        <img src="static/images/time1.jpg">
-                        <div class="time-price">
-                            <b>￥96.00</b>
-                            <del>￥178.00</del>
-                        </div>
-                        <div class="time-words">
-                            细细的爱  日给你温暖；月给你温馨；星给你浪漫；风给你清爽；雨给你滋润；雪给你完美；霜给你晶莹；我给你祝福
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/time1.jpg">
-                        <div class="time-price">
-                            <b>￥96.00</b>
-                            <del>￥178.00</del>
-                        </div>
-                        <div class="time-words">
-                            细细的爱  日给你温暖；月给你温馨；星给你浪漫；风给你清爽；雨给你滋润；雪给你完美；霜给你晶莹；我给你祝福
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/time1.jpg">
-                        <div class="time-price">
-                            <b>￥96.00</b>
-                            <del>￥178.00</del>
-                        </div>
-                        <div class="time-words">
-                            细细的爱  日给你温暖；月给你温馨；星给你浪漫；风给你清爽；雨给你滋润；雪给你完美；霜给你晶莹；我给你祝福
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/time1.jpg">
-                        <div class="time-price">
-                            <b>￥96.00</b>
-                            <del>￥178.00</del>
-                        </div>
-                        <div class="time-words">
-                            细细的爱  日给你温暖；月给你温馨；星给你浪漫；风给你清爽；雨给你滋润；雪给你完美；霜给你晶莹；我给你祝福
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/time1.jpg">
-                        <div class="time-price">
-                            <b>￥96.00</b>
-                            <del>￥178.00</del>
-                        </div>
-                        <div class="time-words">
-                            细细的爱  日给你温暖；月给你温馨；星给你浪漫；风给你清爽；雨给你滋润；雪给你完美；霜给你晶莹；我给你祝福
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/time1.jpg">
-                        <div class="time-price">
-                            <b>￥96.00</b>
-                            <del>￥178.00</del>
-                        </div>
-                        <div class="time-words">
-                            细细的爱  日给你温暖；月给你温馨；星给你浪漫；风给你清爽；雨给你滋润；雪给你完美；霜给你晶莹；我给你祝福
-                        </div>
-                    </a>
-                </li>
+                <?=$this->render('_time')?>
+
             </ul>
         </div>
     </div>
@@ -192,118 +71,18 @@ $this->title = '伊米蛋糕屋';
                 <span class="detail fl">生日蛋糕</span>
             </div>
             <div class="outer">
-                <a href="#">
+                <a href="javascript:;">
                     <img src="static/images/outer1.jpg">
                 </a>
             </div>
         </div>
         <div class="right">
             <ul class="top-list">
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-            </ul>
-            <ul class="btm-list">
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
+                <?= $this->render('_birth');?>
             </ul>
         </div>
     </div>
+
     <!--==========================爱情蛋糕======================================-->
     <div class="floor lovecake clear">
         <div class="left">
@@ -312,115 +91,14 @@ $this->title = '伊米蛋糕屋';
                 <span class="detail fl">爱情蛋糕</span>
             </div>
             <div class="outer">
-                <a href="#">
+                <a href="javascript:;">
                     <img src="static/images/outer1.jpg">
                 </a>
             </div>
         </div>
         <div class="right">
             <ul class="top-list">
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-            </ul>
-            <ul class="btm-list">
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
+                <?= $this->render('_love');?>
             </ul>
         </div>
     </div>
@@ -432,115 +110,14 @@ $this->title = '伊米蛋糕屋';
                 <span class="detail fl">祝寿蛋糕</span>
             </div>
             <div class="outer">
-                <a href="#">
+                <a href="javascript:;">
                     <img src="static/images/outer1.jpg">
                 </a>
             </div>
         </div>
         <div class="right">
             <ul class="top-list">
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-            </ul>
-            <ul class="btm-list">
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
+                <?= $this->render('_old');?>
             </ul>
         </div>
     </div>
@@ -552,115 +129,14 @@ $this->title = '伊米蛋糕屋';
                 <span class="detail fl">鲜花</span>
             </div>
             <div class="outer">
-                <a href="#">
+                <a href="javascript:;">
                     <img src="static/images/outer1.jpg">
                 </a>
             </div>
         </div>
         <div class="right">
             <ul class="top-list">
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-            </ul>
-            <ul class="btm-list">
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="static/images/con1.jpg">
-                        <div class="btm-item fl">
-                            <span class="btm-name">蛋糕-细细的爱</span>
-                            <span class="btm-price">￥456</span>
-                        </div>
-                        <div class="tag">立即购买</div>
-                    </a>
-                </li>
+                <?= $this->render('_flower');?>
             </ul>
         </div>
     </div>

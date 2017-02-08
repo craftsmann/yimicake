@@ -38,7 +38,7 @@ class Log extends \yii\db\ActiveRecord
             [['uid', 'url', 'ip', 'tablename', 'methods', 'oprater', 'description'], 'required'],
             ['uid', 'integer'],
             [['url', 'ip', 'tablename', 'methods', 'oprater'], 'string', 'max' => 255],
-            [['description'], 'string', 'max' => 300],
+            [['description'], 'string'],
         ];
     }
 

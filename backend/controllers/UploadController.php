@@ -22,7 +22,8 @@ class UploadController extends BaseController
                 $date = date('Ymd');
                 $path = \Yii::getAlias('@frontend').'/web/uploads/'.$date.'/';
                 if(!file_exists($path)){
-                    mkdir($path,077,true);
+                    mkdir($path,0777,true);
+                    chmod($path,0777);
                 }
                 $extension = $model->imageFile->getExtension();
                 $name = date('YmdHis').rand(1000,9999);
@@ -54,7 +55,8 @@ class UploadController extends BaseController
                 $date = date('Ymd');
                 $path = \Yii::getAlias('@frontend').'/web/uploads/'.$date.'/';
                 if(!file_exists($path)){
-                    mkdir($path,077,true);
+                    mkdir($path,0777,true);
+                    chmod($path,0777);
                 }
                 $extension = $model->images->getExtension();
                 $name = date('YmdHis').rand(1000,9999);

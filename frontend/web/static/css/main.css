@@ -257,7 +257,7 @@
   margin: 20px 0;
 }
 .recomend-floor .list {
-  width: 997px;
+  width: 100%;
 }
 .recomend-floor .humanservice {
   width: 191px;
@@ -268,39 +268,11 @@
   height: 30px;
   line-height: 30px;
 }
-.list .list-box {
-  width: 920px;
+.list .list-box{
   height: 190px;
-  border: 1px solid #e5e5e5;
-  border-top-width: 2px;
-  overflow: hidden;
 }
-.list .list-box:hover .list-btn {
-  display: block;
-}
-.list .list-box .list_slide {
-  overflow: hidden;
-  position: relative;
-  height: 190px;
-  width: 1500px;
-}
-.list .list-box .list-btn {
-  position: absolute;
-  display: none;
-  width: 900px;
-  top: 65px;
-}
-.list .list-box .list-btn span {
-  display: block;
-  color: #DCDCDC;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  font-size: 43px;
-  text-align: center;
-  cursor: pointer;
-  z-index: 5;
-}
+
+
 .list .list-box .list-img {
   overflow: hidden;
   position: absolute;
@@ -309,9 +281,16 @@
   display: inline-block;
 }
 .list .list-box .list-img li {
+  width: 300px;
+  height: 190px;
   float: left;
   padding-left: 5px;
   margin: 10px 0;
+  overflow: hidden;
+}
+.list .list-box .list-img a img:hover{
+  margin-left: 5px;
+  transition: all 0.2s ease-out;
 }
 .humanservice .service-top {
   font-size: 15px;
@@ -382,6 +361,9 @@
   width: 200px;
   height: 256px;
 }
+.time-box ul li a img:hover{
+  opacity: 0.7;
+}
 .time-box ul li a:hover {
   color: #666;
 }
@@ -425,7 +407,10 @@
   display: block;
 }
 .floor .right {
+  height: 621px;
+  width: 1010px;
   float: left;
+  overflow: hidden;
 }
 .floor .right a:hover {
   color: #666;
@@ -434,7 +419,12 @@
   width: 200px;
   height: 256px;
 }
+.floor .right img:hover{
+  opacity: 0.7;
+  transition: all 0.2s ease-out;
+}
 .floor .right ul {
+  overflow: hidden;
   border-left: 1px solid #e7e7e7;
 }
 .floor .right ul li {
