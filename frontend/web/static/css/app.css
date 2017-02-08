@@ -825,7 +825,7 @@ strong.hot {
 }
 .shop-box .shop-right .s-detail span {
   display: block;
-  line-height: 53px;
+  line-height: 28px;
   max-width: 100px;
   color: #848484;
   margin-right: 5px;
@@ -896,7 +896,7 @@ strong.hot {
   line-height: 35px;
   border-bottom: 1px solid #dfdfdf;
 }
-.comment-right .shoptitle a {
+.comment-right .shoptitle a{
   border-top: 2px solid #fff;
   display: inline-block;
   width: 80px;

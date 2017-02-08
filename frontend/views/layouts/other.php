@@ -16,7 +16,7 @@ $value = \common\models\Value::find()->joinWith('catename b')->where(['b.name'=>
 
     <meta name="description" content="伊米蛋糕店">
 
-    <title><?= Html::encode($this->title) ?></title>
+    <title>伊米蛋糕网</title>
 
     <?= Html::csrfMetaTags();?>
 
