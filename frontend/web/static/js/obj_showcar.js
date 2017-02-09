@@ -3,8 +3,10 @@
         var _this = this;
         this.obj_clearall = $('.g_clearall');
         this.obj_clearone = $('.g_clearone');
-        this.btn_add = $('.btn_add');
-        this.btn_reduce = $('.btn_reduce');
+        this.btn_add = $('.g_add');
+        this.btn_reduce = $('.g_reduce');
+        this.obj_price  = $('.g_price');
+        this.obj_litsum = $('.g_littlesum');
 
         //公用ajax
         var data_ajax = function (obj) {
@@ -20,7 +22,17 @@
             })
         };
 
+        //总额
+        var data_sum  = function () {
+           var data = 0;
+             _this.obj_litsum.each(function () {
+                data += parseInt($(this).html());
+            });
+            return data;
+        };
+
         return this.each(function () {
+            _this.obj_price.html('￥'+data_sum());
             //add按钮点击ajax
             _this.btn_add.on('click', function () {
                 data_ajax(this);

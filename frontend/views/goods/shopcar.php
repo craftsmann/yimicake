@@ -31,7 +31,7 @@ use yii\helpers\Url;
             </div>
             <div class="total-right">
                 <span>
-                    合计：<strong>￥451</strong>
+                    合计：<strong class="g_price">0</strong>
                 </span>
                 <a href="<?=Url::to(['order/list'])?>" title="立即结算" target="_blank">立即结算</a>
             </div>
