@@ -112,6 +112,10 @@ class Goods extends \yii\db\ActiveRecord
         return $this->hasOne(Value::className(),['id'=>'value']);
     }
 
+    public function getCon(){
+        return $this->hasOne(Detail::className(),['goods_id'=>'id']);
+    }
+
 
 
 }

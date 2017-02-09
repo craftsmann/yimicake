@@ -12,7 +12,8 @@ class GoodsController extends BaseController
     //商品详情
     public function actionView(){
         $id = Yii::$app->request->get('id');
-        $result  = Goods::find()->joinWith('cate')->where([Goods::tableName().'.id'=>$id])->asArray()->all();
+        $result  = Goods::find()->joinWith('cate')->joinWith('con')->where([Goods::tableName().'.id'=>$id])->asArray()->all();
+        //echo '<pre>';print_r($result);echo '</pre>';die();
         return $this->render('view',['res'=>$result]);
     }
 

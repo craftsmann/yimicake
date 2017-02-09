@@ -32,6 +32,7 @@
         };
 
         return this.each(function () {
+            //计算总金额
             _this.obj_price.html('￥'+data_sum());
             //add按钮点击ajax
             _this.btn_add.on('click', function () {
