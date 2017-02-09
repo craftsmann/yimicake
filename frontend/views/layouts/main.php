@@ -74,8 +74,10 @@ $value = \common\models\Value::find()->joinWith('catename b')->where(['b.name'=>
 
         <div class="right fl">
             <div class="cart">
-                <span>我的购物车</span>
-                <a href="#">2</a>
+                <a href="<?=Url::to(['goods/shopcar'])?>" target="_blank">
+                    <span class="s-car" title="共件<?=$this->render('_car')?>商品，请点击查看">我的购物车</span>
+                </a>
+                <a href="<?=Url::to(['goods/shopcar'])?>" class="s-car-num" target="_blank"><?=$this->render('_car')?></a>
             </div>
         </div>
     </div>

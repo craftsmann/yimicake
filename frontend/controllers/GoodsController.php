@@ -2,6 +2,7 @@
 
 
 namespace frontend\controllers;
+use common\models\Cart;
 use common\models\Goods;
 use Yii;
 use yii\web\Cookie;
@@ -17,7 +18,6 @@ class GoodsController extends BaseController
 
     //添加购物车
     public function actionAddcar(){
-
         $num = Yii::$app->request->get('num');
         $id  = Yii::$app->request->get('id');
         $tmpArr = [];
@@ -54,8 +54,20 @@ class GoodsController extends BaseController
                 return json_encode($success);
             }
         }else{
-
-
+            //登录用户数据库存储
+            $goods = Cart::findOne(['goods_id'=>$id]);
+            $cart  = new Cart();
+            //查找不到商品
+            if(!$goods){
+                $cart->goods_id  = (int)$id;
+                $cart->num       = (int)$num;
+                $cart->uid       = Yii::$app->getUser()->id;
+                return $cart->insert()? json_encode($success):json_encode($error);
+            }else{
+            //查找到商品
+                $goods->num = $num;
+                return $cart->save()? json_encode($success):json_encode($error);
+            }
         }
     }
 

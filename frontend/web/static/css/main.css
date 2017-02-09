@@ -112,7 +112,7 @@
 .cart span:hover {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px;
 }
-.cart a {
+.cart .s-car-num{
   position: relative;
   right: -116px;
   top: -35px;

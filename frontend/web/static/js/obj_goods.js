@@ -1,5 +1,5 @@
 /**
- * 购物车处理
+ * 加入购物车处理
  */
 (function($){
     $.fn.Shop = function(){
@@ -10,8 +10,6 @@
         this.obj_add = $('.s-add');
         this.obj_reduce = $('.s-reduce');
         this.default_num = 1;
-
-
         var reduceNum = function () {
             --_this.default_num;
             $('#s-num').val(_this.default_num);
@@ -39,7 +37,11 @@
                     url:_this.url,
                     data:{num:_this.default_num,id:_this.obj_gid},
                     success:function (data) {
-                        window.alert(data);
+                        var goods_val = eval("("+data+")");
+                        if(goods_val.status == 'success'){
+                            alert(goods_val.message);
+                            window.location.reload();
+                        }
                     },
                     error:function () {
                         window.alert('请求错误,请重新尝试!');
