@@ -4,6 +4,7 @@
  * @author craftsmann <m13993334619@163.com>
  */
 use yii\helpers\Url;
+\frontend\assets\AppAsset::addScript($this,'@web/static/js/obj_showcar.js');
 ?>
 <div class="center">
    <div class="shopcart" id="r-shopcart">
@@ -26,7 +27,7 @@ use yii\helpers\Url;
     </table>
        <div class="total-cart">
             <div class="total-left">
-                <a href="" title="全部清空">全部清空</a>
+                <a class="g_clearall" data-id="2" data-link="<?=Url::to(['goods/clear','type'=>'all'])?>" title="全部清空" style="cursor: pointer">全部清空</a>
             </div>
             <div class="total-right">
                 <span>
@@ -37,3 +38,8 @@ use yii\helpers\Url;
        </div>
 </div>
 </div>
+
+<?php
+ $js = '$("#r-shopcart").Showcar()';
+ $this->registerJs($js,\yii\web\View::POS_END);
+?>

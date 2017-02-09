@@ -16,7 +16,7 @@ class GoodsController extends BaseController
         return $this->render('view',['res'=>$result]);
     }
 
-    //购物车
+    //购物车列表
     public function actionShopcar(){
         //是否游客
         if(Yii::$app->user->isGuest){
@@ -93,4 +93,109 @@ class GoodsController extends BaseController
         }
     }
 
+    //操作购物车
+    public function actionOprater(){
+
+        $id   = Yii::$app->request->get('id');
+        $type = Yii::$app->request->get('type');
+        $success = ['status'=>'success','message'=>'操作成功'];
+        $error   = ['status'=>'success','message'=>'操作失败,请重试'];
+        //判断访客
+        if(Yii::$app->user->isGuest){
+            $data = unserialize(base64_decode(Yii::$app->request->cookies->getValue('YIMICAKE')));
+            unset($_COOKIE['YIMICAKE']);
+            //添加
+            if($type == 'add'){
+                foreach ($data as &$v){
+                    if($v['id']==$id){
+                        $v['num'] +=1;
+                    }
+                }
+                $cookieVal  = base64_encode(serialize($data));
+                Yii::$app->response->cookies->add(new Cookie([
+                    'name'  =>'YIMICAKE',
+                    'value' =>$cookieVal,
+                ]));
+                return json_encode($success);
+            }else{
+                //减少
+                if($type == 'reduce'){
+                    foreach ($data as &$v){
+                        if($v['id']==$id){
+                            $v['num']=$v['num']<=1?1:$v['num']-1;
+                        }
+                    }
+                    $cookieVal  = base64_encode(serialize($data));
+                    Yii::$app->response->cookies->add(new Cookie([
+                        'name'  =>'YIMICAKE',
+                        'value' =>$cookieVal,
+                    ]));
+                    return json_encode($success);
+            }
+         }
+        }else{
+            //操作数据库
+            $goods = Cart::find()->where(['uid'=>Yii::$app->getUser()->id,'goods_id'=>$id])->one();
+            $goods_num    = $goods->num;
+            //增加
+            if($type == 'add'){
+                $goods->num =$goods_num+1;
+                return $goods->save()?json_encode($success):json_encode($error);
+            }else{
+            //减少
+                $goods->num = $goods_num <= 1? 1: $goods_num-1;
+                $goods->save();
+                return $goods->save()?json_encode($success):json_encode($error);
+            }
+        }
+        return json_decode($error);
+    }
+
+    //清除购物车
+    public function actionClear(){
+        $id   = Yii::$app->request->get('id');
+        $type = Yii::$app->request->get('type');
+        $success = ['status'=>'success','message'=>'清除成功'];
+        $error   = ['status'=>'success','message'=>'清除失败,请重试'];
+        //游客
+        if(Yii::$app->user->isGuest){
+            $data = unserialize(base64_decode(Yii::$app->request->cookies->getValue('YIMICAKE')));
+            unset($_COOKIE['YIMICAKE']);
+            //var_dump($data);die();
+            //清除单个
+            if($type=='one'){
+                foreach ($data as $k=>&$v){
+                    if($v['id'] == $id){
+                        unset($data[$k]);
+                    }
+                }
+                $cookieVal  = base64_encode(serialize($data));
+                Yii::$app->response->cookies->add(new Cookie([
+                    'name'  =>'YIMICAKE',
+                    'value' =>$cookieVal,
+                ]));
+                return json_encode($success);
+            }
+            //清除全部
+            if($type=='all'){
+                Yii::$app->response->cookies->remove('YIMICAKE');
+                return json_encode($success);
+            }
+        }else{
+
+            if($type == 'one'){
+               $data = Cart::find()->where(['uid'=>Yii::$app->getUser()->id,'goods_id'=>$id])->one();
+               return !$data->delete()?json_encode($error):json_encode($success);
+            }
+            if($type=='all'){
+                //会员
+                $data = Cart::deleteAll(['uid'=>Yii::$app->getUser()->id]);
+                if($data){
+                    return !$data?json_encode($error):json_encode($success);
+                }
+            }
+        }
+        return json_encode($error);
+
+    }
 }

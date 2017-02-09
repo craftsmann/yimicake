@@ -19,7 +19,6 @@
             ++_this.default_num;
             $('#s-num').val(_this.default_num);
         };
-
         return this.each(function(){
 
             _this.obj_reduce.bind('click',function () {
