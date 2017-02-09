@@ -1,0 +1,39 @@
+<?php
+/**
+ * @see    https://github.com/craftsmann
+ * @author craftsmann <m13993334619@163.com>
+ */
+use yii\helpers\Url;
+?>
+<div class="center">
+   <div class="shopcart" id="r-shopcart">
+       <div class="breadbox">
+           <a href="<?=Yii::$app->homeUrl?>">首页</a>&nbsp;&nbsp;&gt;
+           <span class="shop-cur">购物车</span>
+       </div>
+    <table>
+        <thead>
+               <th>图片</th>
+               <th>名称</th>
+               <th>单价</th>
+               <th>数量</th>
+               <th>小计</th>
+               <th>操作</th>
+        </thead>
+        <tbody>
+              <?=$this->render('_shop',['model'=>$model]);?>
+        </tbody>
+    </table>
+       <div class="total-cart">
+            <div class="total-left">
+                <a href="" title="全部清空">全部清空</a>
+            </div>
+            <div class="total-right">
+                <span>
+                    合计：<strong>￥451</strong>
+                </span>
+                <a href="<?=Url::to(['order/list'])?>" title="立即结算" target="_blank">立即结算</a>
+            </div>
+       </div>
+</div>
+</div>

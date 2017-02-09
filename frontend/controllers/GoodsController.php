@@ -16,6 +16,23 @@ class GoodsController extends BaseController
         return $this->render('view',['res'=>$result]);
     }
 
+    //购物车
+    public function actionShopcar(){
+        //是否游客
+        if(Yii::$app->user->isGuest){
+            //cookie是否存在
+            if(Yii::$app->request->cookies->has('YIMICAKE')){
+                $cookieval = Yii::$app->request->cookies->getValue('YIMICAKE');
+                $data = unserialize(base64_decode($cookieval));
+            }else{
+                $data = '';
+            }
+        }else{
+            $data = Cart::find()->select('id,num')->where(['uid'=>Yii::$app->getUser()->id])->asArray()->all();
+        }
+        return $this->render('shopcar',['model'=>$data]);
+    }
+
     //添加购物车
     public function actionAddcar(){
         $num = Yii::$app->request->get('num');
@@ -37,15 +54,20 @@ class GoodsController extends BaseController
             }else{
             //如果存在cookie
                $data =  unserialize(base64_decode(Yii::$app->request->cookies->getValue('YIMICAKE')));
+               unset($_COOKIE['YIMICAKE']);
                $tmpID = '';
+               $tmparr=[];
                 foreach ($data as &$v){
                    if($v['id'] == $id){
                        $v['num']=$num;
-                   }else{$tmpID = $id;}
+                   }
+                   array_push($tmparr,$v['id']);
                }
-                if($tmpID!==''){
-                    $data[] = ['num'=>$num,'id'=>$tmpID];
-                }
+               //var_dump($tmparr);die();
+               if(!in_array($id,$tmparr)){
+                   $data[] = ['num'=>$num,'id'=>$id];
+               }
+
                 $cookieVal  = base64_encode(serialize($data));
                 Yii::$app->response->cookies->add(new Cookie([
                     'name'  =>'YIMICAKE',

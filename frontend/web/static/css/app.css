@@ -17,6 +17,7 @@
 }
 .top .left a {
   color: #666666;
+  font-size: 14px;
 }
 .top .left a:hover {
   color: #f95d50;
@@ -27,6 +28,7 @@
 .top .right a {
   float: left;
   padding-right: 13px;
+  font-size: 14px;
 }
 .center {
   width: 1210px;
@@ -491,8 +493,8 @@
 }
 .shopcart table h3 a {
   position: absolute;
-  left: 50px;
-  top: -45px;
+  left: -36px;
+  top: -17px;
   width: 100px;
 }
 .shopcart table img {
