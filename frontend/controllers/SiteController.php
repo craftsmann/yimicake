@@ -6,6 +6,7 @@
 namespace frontend\controllers;
 
 
+use frontend\models\LoginForm;
 use frontend\models\SignupForm;
 use yii\captcha\Captcha;
 use yii\web\Controller;
@@ -27,8 +28,16 @@ class SiteController extends Controller
 
     //登录
     public function actionLogin(){
-        $model = new SignupForm();
+        $model = new LoginForm();
 
+        if(Yii::$app->request->isPost){
+           if($model->load(Yii::$app->request->post()) && $model->realLogin()){
+               if(Yii::$app->request->cookies->has('YIMICAKE')){
+                  Yii::$app->response->cookies->remove('YIMICAKE');
+               }
+               return $this->redirect(['index/index']);
+           }
+        }
         return $this->render('login',['model'=>$model]);
     }
 

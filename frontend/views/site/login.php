@@ -23,7 +23,7 @@
                     ]
             ]);?>
                 <?= $form->field($model,'username')->textInput();?>
-                <?= $form->field($model,'password')->textInput();?>
+                <?= $form->field($model,'password')->passwordInput();?>
                 <div class="re-sub">
                     <?=\yii\helpers\Html::submitButton('提交',['placeHolder'=>'提交'])?>
                 </div>
