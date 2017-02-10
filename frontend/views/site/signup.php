@@ -13,37 +13,29 @@
             </div>
         </div>
         <div class="register-right fl">
-            <form action="" method="post">
-                <div class="r-header">
-                    <span class="fl">没有账号？请注册</span>
-                    <span class="fr">已经注册？<a href="<?=\yii\helpers\Url::to(['site/login'])?>" style="color: red">登录</a></span>
-                </div>
-                <div class="r-item">
-                    <span>账户:</span>
-                    <input type="text" name="username" placeholder="输入用户名">
-                </div>
+            <div class="r-header">
+                <span class="fl">没有账号？<strong>请注册</strong></span>
+                <span class="fr">已经注册？<a href="<?=\yii\helpers\Url::to(['site/login'])?>" style="color: red">登录</a></span>
+            </div>
+            <?php $form=\yii\widgets\ActiveForm::begin([
+                    'fieldConfig'=>[
+                            'template'=>'<div class="r-item"><span>{label}：</span>{input}</div><div class="error">{error}</div>'
+                    ]
+            ]);?>
 
-                <div class="r-item">
-                    <span>邮箱:</span>
-                    <input type="text" name="username" placeholder="请输入邮箱">
-                </div>
+               <?= $form->field($model,'username')->textInput(['placeholder'=>'输入用户名']);?>
+               <?= $form->field($model,'email')->textInput(['placeholder'=>'输入用户名']);?>
+               <?= $form->field($model,'password')->passwordInput(['placeholder'=>'输入密码']);?>
+               <?= $form->field($model,'repass')->passwordInput(['placeholder'=>'重复密码']);?>
 
-                <div class="r-item">
-                    <span>密码:</span>
-                    <input type="text" name="username" placeholder="请输入密码">
-                </div>
-                <div class="r-item">
-                    <span>重复密码:</span>
-                    <input type="text" name="username" placeholder="请重复输入密码">
-                </div>
-                <div class="r-item">
-                    <span>验证码:</span>
-                    <input type="text" name="username" placeholder="请输入验证码">
-                </div>
+                <?= $form->field($model, 'verify')->widget(\yii\captcha\Captcha::className(), [
+                    'template' => '<div class="row"><div class="col-lg-7">{input}</div><div class="col-lg-4">{image}</div></div>',
+                    'imageOptions' => ['title' => '换一个', 'alt' => '验证码', 'style' => 'cursor:pointer;']
+                ]); ?>
                 <div class="re-sub">
-                    <input type="button" value="注册">
+                    <?=\yii\helpers\Html::submitButton('注册',['title'=>'注册'])?>
                 </div>
-            </form>
+            <?php \yii\widgets\ActiveForm::end();?>
 
         </div>
     </div>

@@ -6,20 +6,40 @@
 namespace frontend\controllers;
 
 
+use frontend\models\SignupForm;
+use yii\captcha\Captcha;
 use yii\web\Controller;
 use Yii;
 
 class SiteController extends Controller
 {
+    public function actions()
+    {
+        return [
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'maxLength' => 3, //最大显示个数
+                'minLength' => 3,//最少显示个数
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
+        ];
+    }
+
     //登录
     public function actionLogin(){
+        $model = new SignupForm();
 
-        return $this->render('login');
+        return $this->render('login',['model'=>$model]);
     }
 
     //注册
     public function actionSignup(){
-
-        return $this->render('signup');
+        $model = new SignupForm();
+        if(Yii::$app->request->isPost){
+            if($model->load(Yii::$app->request->post())&& $model->signup()){
+                return $this->redirect(['login']);
+            }
+        }
+        return $this->render('signup',['model'=>$model]);
     }
 }

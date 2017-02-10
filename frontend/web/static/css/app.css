@@ -566,9 +566,6 @@ strong.hot {
   }
 }
 /**================================注册样式====================================**/
-.register {
-  margin: 20px 130px;
-}
 .register-left {
   float: left;
 }
@@ -577,8 +574,9 @@ strong.hot {
   box-shadow: 0 1px rgba(0, 0, 0, 0.2);
 }
 .register-right {
-  width: 350px;
-  margin-left: 20px;
+  width: 455px;
+  margin-left: 120px;
+  margin-top: 20px;
 }
 .register-right .r-header {
   height: 40px;
@@ -589,6 +587,8 @@ strong.hot {
   height: 14px;
   color: red;
   padding-left: 100px;
+  margin-top: -20px;
+  margin-bottom: 20px;
 }
 .register-right .r-item {
   line-height: 60px;
@@ -612,11 +612,27 @@ strong.hot {
   float: left;
   display: block;
   height: 25px;
-  width: 240px;
+  width: 340px;
   padding-left: 3px;
   outline: #eee;
 }
 .re-sub input {
+  width: 50px;
+  height: 30px;
+  background: #f95d50;
+  color: #fff;
+  border: none;
+  float: right;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+.re-sub button{
   width: 50px;
   height: 30px;
   background: #f95d50;
@@ -890,7 +906,7 @@ strong.hot {
   margin-left: 10px;
 }
 .comment-right {
-  width: 950px;
+  width: 980px;
   border: 1px solid #dcdcdc;
 }
 .comment-right .shoptitle {

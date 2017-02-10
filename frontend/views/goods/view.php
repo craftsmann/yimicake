@@ -64,7 +64,7 @@ $this->registerJsFile('@web/static/js/detail.js',[\frontend\assets\AppAsset::cla
 
             <div class="s-detail clear" style="margin-top: 40px">
                 <a class="btn btn-cart fr">立即购买</a>
-                <a id="s-car" class="btn btn-pay fr" style="margin-right: 20px" title="加入购物车^_^" href="<?=Url::to(['goods/addcar'])?>">购物车</a>
+                <a id="s-car" class="btn btn-pay fr" style="margin-right: 20px" title="加入购物车^_^" href="<?=Url::to(['goods/addcar'])?>">加入购物车</a>
             </div>
         </div>
     </div>
@@ -77,6 +77,7 @@ $this->registerJsFile('@web/static/js/detail.js',[\frontend\assets\AppAsset::cla
             <div class="shoptitle">
                 <a href="javascript:;" data-item="0" class="c-cur" style="cursor: pointer">商品详情</a>
                 <a href="javascript:;" data-item="1" style="cursor: pointer">累计评论</a>
+                <a href="javascript:;" data-item="2" style="cursor: pointer">添加评论</a>
             </div>
             <div class="sh-box">
                 <div class="shop-con">
@@ -84,75 +85,78 @@ $this->registerJsFile('@web/static/js/detail.js',[\frontend\assets\AppAsset::cla
                 </div>
     <?php endforeach;?>
                 <div class="shop-con" style="display: none">
-                    <div class="pl-box clear">
-                        <div class="pl-left fl">
-                            <img src="static/images/avator.jpg" alt="">
-                            <p>12445113</p>
-                            <img src="static/images/star.jpg">
-                            <img src="static/images/star.jpg">
-                            <img src="static/images/star.jpg">
-                            <img src="static/images/star.jpg">
-                            <img src="static/images/star.jpg">
-                        </div>
-                        <div class="pl-right fl">
-                            <p>
-                                七夕下午送到，和照片符合，满意,七夕下午送到，和照片符合，满意七夕下午送到，和照片符合，满意七夕下午送到，和照片符合，满意七夕下午送到，和照片符合，满意
-                                七夕下午送到，和照片符合，满意七夕下午送到，和照片符合，满意七夕下午送到，和照片符合，满意
-                            </p>
-                            <p class="pl-site">
-                            <div class="pl-ip fr">124.45.12.2</div>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="pl-box clear">
-                        <div class="pl-left fl">
-                            <img src="static/images/avator.jpg" alt="">
-                            <p>12445113</p>
-                            <img src="static/images/star.jpg">
-                            <img src="static/images/star.jpg">
-                            <img src="static/images/star.jpg">
-                            <img src="static/images/star.jpg">
-                            <img src="static/images/star.jpg">
-                        </div>
-                        <div class="pl-right fl">
-                            <p>
-                                七夕下午送到，和照片符合，满意,七夕下午送到，和照片符合，满意七夕下午送到，和照片符合，满意七夕下午送到，和照片符合，满意七夕下午送到，和照片符合，满意
-                                七夕下午送到，和照片符合，满意七夕下午送到，和照片符合，满意七夕下午送到，和照片符合，满意
-                            </p>
-                            <p class="pl-site">
-                            <div class="pl-ip fr">124.45.12.2</div>
-                            </p>
-                        </div>
-                    </div>
+                    <?php if(!isset($comments)):?>
+                            <?='<h2>该商品暂无评论</h2>'?>
+                        <?php else:?>
+
+                        <?php foreach ($comments as $c):?>
+                            <div class="pl-box clear">
+                                <div class="pl-left fl">
+                                    <img src="static/images/avator.jpg" alt="">
+                                    <p>12445113</p>
+                                    <img src="static/images/star.jpg">
+                                    <img src="static/images/star.jpg">
+                                    <img src="static/images/star.jpg">
+                                    <img src="static/images/star.jpg">
+                                    <img src="static/images/star.jpg">
+                                </div>
+                                <div class="pl-right fl">
+                                    <p>
+                                        <?=$c['comments']?>
+                                    </p>
+                                    <p class="pl-site">
+                                    <div class="pl-ip fr">124.45.12.2</div>
+                                    </p>
+                                </div>
+                            </div>
+                        <?php endforeach;?>
+                        <?=\yii\widgets\LinkPager::widget([
+                            'pagination' => $pages,
+                        ]);?>
+                    <?php endif;?>
+
                     <div class="user-content" style="margin-left:103px">
                         <div class="user-form">
                             <form>
-                                <div class="box_baseinfo">
-                                    <span>昵&nbsp;&nbsp;&nbsp;&nbsp;称:</span>
-                                    <input type="text" name="emial">
-                                </div>
-                                <div class="box_baseinfo">
-                                    <span>姓&nbsp;&nbsp;&nbsp;&nbsp;名:</span>
-                                    <input type="text" name="emial">
-                                </div>
-                                <div class="box_baseinfo">
-                                    <span>手&nbsp;&nbsp;&nbsp;&nbsp;机:</span>
-                                    <input type="text" name="emial">
-                                </div>
-                                <div class="box_baseinfo">
-                                    <span>性&nbsp;&nbsp;&nbsp;&nbsp;别:</span>
-                                    <select name="sex">
-                                        <option value="1">男</option>
-                                        <option value="2">女</option>
-                                    </select>
-                                </div>
-                                <div class="re-sub">
-                                    <input type="button" value="保存">
-                                </div>
+
                             </form>
                         </div>
                     </div>
                 </div>
+
+                <div class="shop-con" style="display: none">
+                      <h4>注意：评论不会立即发布，通过审核会发布.</h4>
+                      <?php $form=\yii\widgets\ActiveForm::begin([
+                              'action' => ['comments/accept'],
+                              'options' => ['class'=>'com-form'],
+                              'fieldConfig' => [
+                                      'template'=>'{input}{error}'
+                              ]
+                      ]);?>
+                      <?= $form->field($data,'goods_id')->hiddenInput(['value'=>$goods_id]);?>
+                      <?= $form->field($data,'content')->widget('kucha\ueditor\UEditor',[
+                          'clientOptions' => [
+                              'initialFrameHeight' => '200',
+                              'wordCount'=>'true',
+                              'elementPathEnabled'=>'false',
+                              'maximumWords'=>'400',
+                              //定制菜单
+                              'toolbars' => [
+                                  [
+                                      'fullscreen', 'undo', 'redo', '|',
+                                      'bold', 'italic','removeformat',
+                                  ],
+                              ]
+                          ]
+                      ]);?>
+                        <div class="re-sub" style="margin-top: 20px" title="发布">
+                            <input type="button" value="发布" class="com-sub">
+                        </div>
+                      <?php $form=\yii\widgets\ActiveForm::end();?>
+
+                </div>
+
+              </div>
             </div>
         </div>
     </div>

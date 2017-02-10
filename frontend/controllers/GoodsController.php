@@ -3,18 +3,53 @@
 
 namespace frontend\controllers;
 use common\models\Cart;
+use common\models\Comments;
 use common\models\Goods;
+use frontend\models\CommentsForm;
 use Yii;
+use yii\data\Pagination;
 use yii\web\Cookie;
 
 class GoodsController extends BaseController
 {
-    //商品详情
+    public function actions()
+    {
+        return [
+            'upload' => [
+                'class' => 'kucha\ueditor\UEditorAction',
+            ]
+        ];
+    }
+
+
     public function actionView(){
+
+
         $id = Yii::$app->request->get('id');
+    //获取商品
         $result  = Goods::find()->joinWith('cate')->joinWith('con')->where([Goods::tableName().'.id'=>$id])->asArray()->all();
-        //echo '<pre>';print_r($result);echo '</pre>';die();
-        return $this->render('view',['res'=>$result]);
+    //获取评论
+        $query    = Comments::find()->where([Comments::tableName().'.type'=>10,'goods_id'=>(int)$id])
+                   ->joinWith('users')
+                   ->joinWith('goods')
+                   ->asArray();
+        $pages = new Pagination(['totalCount'=>$query->count(),'pageSize'=>'10']);
+
+        $model = $query->offset($pages->offset)->limit($pages->limit)->all();
+
+        $data  = new CommentsForm();
+
+
+
+       //echo '<pre>';print_r($model);echo '</pre>';die();
+
+        return $this->render('view',[
+             'res'    =>$result,
+             'comment'=>$model,
+             'pages'  =>$pages,
+             'data'   =>$data,
+             'goods_id'=>$id
+        ]);
     }
 
     //购物车列表

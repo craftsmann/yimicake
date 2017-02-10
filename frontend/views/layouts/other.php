@@ -36,8 +36,8 @@ $value = \common\models\Value::find()->joinWith('catename b')->where(['b.name'=>
         </div>
         <div class="right fr">
             <?php if(Yii::$app->user->isGuest):?>
-                <a href="<?=Url::to(['site/login'])?>">登录</a>
-                <a href="<?=Url::to(['site/signup'])?>">注册</a>
+                <a href="<?=Url::to(['site/login'])?>" target="_blank">登录</a>
+                <a href="<?=Url::to(['site/signup'])?>" target="_blank">注册</a>
             <?php endif;?>
             <a href="<?=Yii::$app->user->isGuest?Url::to(['site/login']):Url::to(['personal/index'])?>">我的账户</a>
             <a href="">付款方式</a>
@@ -119,24 +119,7 @@ $value = \common\models\Value::find()->joinWith('catename b')->where(['b.name'=>
 
 <!--侧边开始-->
 <div class="sidebar" data-personal='{"oTop":500,"speed":100}' style="display: none;">
-    <ul>
-        <li class="s-service">
-            <a href="http://wpa.qq.com/msgrd?v=3&uin=1791502202&site=qq&menu=yes" title="在线客服">在线客服</a>
-            <i></i>
-        </li>
-        <li class="s-user">
-            <a href="#" title="个人中心">个人中心</a>
-            <i></i>
-        </li>
-        <li class="s-cart">
-            <a href="#" title="购物车">购物车</a>
-            <i></i>
-        </li>
-        <li class="s-top">
-            <a class="totop" href="javascript:;" title="返回顶部">返回顶部</a>
-            <i></i>
-        </li>
-    </ul>
+    <?=$this->render('_sidebar')?>
 </div>
 <!--侧边结束-->
 
