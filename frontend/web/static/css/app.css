@@ -953,6 +953,12 @@ strong.hot {
   width: 85px;
   height: 94px;
 }
+.pl-box .pl-left .pl-com-img{
+  margin-left:15px;
+}
+.pl-box .pl-left .pl-com-img img{
+   float: left;
+}
 .pl-box .pl-right {
   padding-left: 20px;
 }

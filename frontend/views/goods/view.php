@@ -76,7 +76,7 @@ $this->registerJsFile('@web/static/js/detail.js',[\frontend\assets\AppAsset::cla
         <div class="comment-right fl">
             <div class="shoptitle">
                 <a href="javascript:;" data-item="0" class="c-cur" style="cursor: pointer">商品详情</a>
-                <a href="javascript:;" data-item="1" style="cursor: pointer">累计评论</a>
+                <a href="javascript:;" data-item="1" style="cursor: pointer">累计评论(<?=!isset($comment)?0:count($comment)?>)</a>
                 <a href="javascript:;" data-item="2" style="cursor: pointer">添加评论</a>
             </div>
             <div class="sh-box">
@@ -85,27 +85,29 @@ $this->registerJsFile('@web/static/js/detail.js',[\frontend\assets\AppAsset::cla
                 </div>
     <?php endforeach;?>
                 <div class="shop-con" style="display: none">
-                    <?php if(!isset($comments)):?>
+                    <?php if(!isset($comment)):?>
                             <?='<h2>该商品暂无评论</h2>'?>
-                        <?php else:?>
+                    <?php else:?>
 
-                        <?php foreach ($comments as $c):?>
+                        <?php foreach ($comment as $c):?>
                             <div class="pl-box clear">
                                 <div class="pl-left fl">
                                     <img src="static/images/avator.jpg" alt="">
-                                    <p>12445113</p>
-                                    <img src="static/images/star.jpg">
-                                    <img src="static/images/star.jpg">
-                                    <img src="static/images/star.jpg">
-                                    <img src="static/images/star.jpg">
-                                    <img src="static/images/star.jpg">
+                                    <div><?=$c['users']['username']?></div>
+                                    <div class="pl-com-img clear">
+                                        <img src="static/images/star.jpg">
+                                        <img src="static/images/star.jpg">
+                                        <img src="static/images/star.jpg">
+                                        <img src="static/images/star.jpg">
+                                        <img src="static/images/star.jpg">
+                                    </div>
                                 </div>
                                 <div class="pl-right fl">
                                     <p>
-                                        <?=$c['comments']?>
+                                        <?=htmlspecialchars_decode($c['comment'])?>
                                     </p>
                                     <p class="pl-site">
-                                    <div class="pl-ip fr">124.45.12.2</div>
+                                    <div class="pl-ip fr">发布于：<?=date('Y-m-d H:i:s',$c['created_at']);?></div>
                                     </p>
                                 </div>
                             </div>
@@ -125,7 +127,7 @@ $this->registerJsFile('@web/static/js/detail.js',[\frontend\assets\AppAsset::cla
                 </div>
 
                 <div class="shop-con" style="display: none">
-                      <h4>注意：评论不会立即发布，通过审核会发布.</h4>
+                      <h4>注意：评论不会立即发布，通过审核后会公布.</h4>
                       <?php $form=\yii\widgets\ActiveForm::begin([
                               'action' => ['comments/accept'],
                               'options' => ['class'=>'com-form'],

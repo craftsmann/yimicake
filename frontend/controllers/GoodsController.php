@@ -29,7 +29,7 @@ class GoodsController extends BaseController
     //获取商品
         $result  = Goods::find()->joinWith('cate')->joinWith('con')->where([Goods::tableName().'.id'=>$id])->asArray()->all();
     //获取评论
-        $query    = Comments::find()->where([Comments::tableName().'.type'=>10,'goods_id'=>(int)$id])
+        $query    = Comments::find()->where([Comments::tableName().'.type'=>1,'goods_id'=>(int)$id])
                    ->joinWith('users')
                    ->joinWith('goods')
                    ->asArray();
@@ -64,6 +64,7 @@ class GoodsController extends BaseController
                 $data = '';
             }
         }else{
+
             $data = Cart::find()->select('id,num')->where(['uid'=>Yii::$app->getUser()->id])->asArray()->all();
         }
         return $this->render('shopcar',['model'=>$data]);
@@ -170,16 +171,20 @@ class GoodsController extends BaseController
             }
          }
         }else{
-            //操作数据库
-            $goods = Cart::find()->where(['uid'=>Yii::$app->getUser()->id,'goods_id'=>$id])->one();
-            $goods_num    = $goods->num;
+            $goods = Cart::find()->where(['uid'=>Yii::$app->getUser()->id,'id'=>$id])->one();
             //增加
             if($type == 'add'){
-                $goods->num =$goods_num+1;
+                //操作数据库
+                $goods->num +=1;
+                //echo '<pre>';print_r($goods);echo '</pre>';die();
                 return $goods->save()?json_encode($success):json_encode($error);
             }else{
             //减少
-                $goods->num = $goods_num <= 1? 1: $goods_num-1;
+                if($goods->num <=1 ){
+                    $goods->num = 1;
+                }else{
+                    $goods->num -=1;
+                }
                 $goods->save();
                 return $goods->save()?json_encode($success):json_encode($error);
             }
@@ -220,7 +225,7 @@ class GoodsController extends BaseController
         }else{
 
             if($type == 'one'){
-               $data = Cart::find()->where(['uid'=>Yii::$app->getUser()->id,'goods_id'=>$id])->one();
+               $data = Cart::find()->where(['uid'=>Yii::$app->getUser()->id,'id'=>$id])->one();
                return !$data->delete()?json_encode($error):json_encode($success);
             }
             if($type=='all'){

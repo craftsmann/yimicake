@@ -15,6 +15,7 @@
                 data: {id: $(obj).attr('data-id')},
                 success: function (data) {
                     window.location.reload();
+                   //console.log(data);
                 },
                 error: function (){
                     alert('操作出错,请重新尝试');

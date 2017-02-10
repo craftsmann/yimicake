@@ -30,7 +30,7 @@ class CommentsForm extends BaseModel
         $model->goods_id = $this->goods_id;
         $model->user_id  = \Yii::$app->getUser()->id;
         $model->comment  = htmlspecialchars($this->content);
-        $model->type     =  1;
+        $model->type     =  2;
         return !$model->save()?0:1;
     }
     public function attributeLabels()
