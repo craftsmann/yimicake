@@ -3,6 +3,8 @@
  * @see    https://github.com/craftsmann
  * @author craftsmann <m13993334619@163.com>
  */
+
+
 if($model !== ''){
     $tmpArr = [];
     foreach ($model as $v){
@@ -11,6 +13,7 @@ if($model !== ''){
         array_push($tmpArr,$arr);
     }
 ?>
+ <?php //echo '<pre>';print_r($tmpArr);echo '</pre>';die();?>
 <?php foreach ($tmpArr as $dataarr):?>
     <?php foreach ($dataarr as $v):?>
         <tr>

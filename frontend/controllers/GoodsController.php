@@ -60,12 +60,15 @@ class GoodsController extends BaseController
             if(Yii::$app->request->cookies->has('YIMICAKE')){
                 $cookieval = Yii::$app->request->cookies->getValue('YIMICAKE');
                 $data = unserialize(base64_decode($cookieval));
+                //echo '<pre>';print_r($data);echo '</pre>';die();
             }else{
                 $data = '';
             }
         }else{
 
-            $data = Cart::find()->select('id,num')->where(['uid'=>Yii::$app->getUser()->id])->asArray()->all();
+            $data = Cart::find()->select('goods_id as id,num')->where(['uid'=>Yii::$app->getUser()->id])->asArray()->all();
+
+
         }
         return $this->render('shopcar',['model'=>$data]);
     }
@@ -171,7 +174,7 @@ class GoodsController extends BaseController
             }
          }
         }else{
-            $goods = Cart::find()->where(['uid'=>Yii::$app->getUser()->id,'id'=>$id])->one();
+            $goods = Cart::find()->where(['uid'=>Yii::$app->getUser()->id,'goods_id'=>$id])->one();
             //增加
             if($type == 'add'){
                 //操作数据库

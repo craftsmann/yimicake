@@ -58,4 +58,8 @@ class Cart extends \yii\db\ActiveRecord
             TimestampBehavior::className(),
         ];
     }
+
+    public function getGoods(){
+        return $this->hasOne(Goods::className(),['id'=>'goods_id']);
+    }
 }
