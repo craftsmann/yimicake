@@ -36,10 +36,12 @@ $value = \common\models\Value::find()->joinWith('catename b')->where(['b.name'=>
         </div>
         <div class="right fr">
             <?php if(Yii::$app->user->isGuest):?>
-                <a href="<?=Url::to(['site/login'])?>" target="_blank">登录</a>
-                <a href="<?=Url::to(['site/signup'])?>" target="_blank">注册</a>
+                <a href="<?=\yii\helpers\Url::to(['site/login'])?>">登录</a>
+                <a href="<?=\yii\helpers\Url::to(['site/signup'])?>">注册</a>
+            <?php else:?>
+                <a title="我的账户" href="<?=Yii::$app->user->isGuest?Url::to(['site/login']):Url::to(['personal/index'])?>"><?=isset(Yii::$app->user->identity->username)?Yii::$app->user->identity->username:'我'?>的账户</a>
+                <a href="<?=Url::to(['site/logout'])?>" title="登出">退出登录</a>
             <?php endif;?>
-            <a href="<?=Yii::$app->user->isGuest?Url::to(['site/login']):Url::to(['personal/index'])?>">我的账户</a>
             <a href="">付款方式</a>
             <a href="">物流配送</a>
             <a href="">常见问题</a>
@@ -74,8 +76,8 @@ $value = \common\models\Value::find()->joinWith('catename b')->where(['b.name'=>
 
         <div class="right fl">
             <div class="cart">
-                <a href="<?=Url::to(['goods/shopcar'])?>" target="_blank"><span class="s-car" title="共件<?=$this->render('_car')?>商品，请点击查看">我的购物车</span></a>
-                <a href="<?=Url::to(['goods/shopcar'])?>" class="s-car-num" target="_blank"><?=$this->render('_car')?></a>
+                <a href="<?=Url::to(['goods/shopcar'])?>"><span class="s-car" title="共件<?=$this->render('_car')?>商品，请点击查看">我的购物车</span></a>
+                <a href="<?=Url::to(['goods/shopcar'])?>" class="s-car-num"><?=$this->render('_car')?></a>
             </div>
         </div>
     </div>

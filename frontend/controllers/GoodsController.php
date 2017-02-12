@@ -118,9 +118,9 @@ class GoodsController extends BaseController
         }else{
             //登录用户数据库存储
             $goods = Cart::findOne(['goods_id'=>$id]);
-            $cart  = new Cart();
             //查找不到商品
             if(!$goods){
+                $cart  = new Cart();
                 $cart->goods_id  = (int)$id;
                 $cart->num       = (int)$num;
                 $cart->uid       = Yii::$app->getUser()->id;
@@ -128,7 +128,7 @@ class GoodsController extends BaseController
             }else{
             //查找到商品
                 $goods->num = $num;
-                return $cart->save()? json_encode($success):json_encode($error);
+                return $goods->save()? json_encode($success):json_encode($error);
             }
         }
     }
@@ -228,7 +228,7 @@ class GoodsController extends BaseController
         }else{
 
             if($type == 'one'){
-               $data = Cart::find()->where(['uid'=>Yii::$app->getUser()->id,'id'=>$id])->one();
+               $data = Cart::find()->where(['uid'=>Yii::$app->getUser()->id,'goods_id'=>$id])->one();
                return !$data->delete()?json_encode($error):json_encode($success);
             }
             if($type=='all'){

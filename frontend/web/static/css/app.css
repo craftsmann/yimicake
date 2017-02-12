@@ -727,13 +727,12 @@ strong.hot {
 .user-right .user-content {
   width: 100%;
   min-height: 200px;
-  padding: 72px 20px 20px 20px;
 }
 .user-right .user-content tbody a {
   color: #f95d50;
 }
 .box_baseinfo {
-  height: 55px;
+  height: 45px;
 }
 .box_baseinfo span {
   float: left;

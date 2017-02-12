@@ -26,6 +26,13 @@ class SiteController extends Controller
         ];
     }
 
+    //退出登录
+    public function actionLogout(){
+        if(Yii::$app->user->logout()){
+          return $this->redirect(['index/index']);
+        }
+    }
+
     //登录
     public function actionLogin(){
         $model = new LoginForm();

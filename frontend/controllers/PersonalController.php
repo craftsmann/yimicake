@@ -6,10 +6,21 @@
 namespace frontend\controllers;
 
 
+use frontend\models\UserForm;
+
 class PersonalController extends BaseController
 {
     public function actionIndex(){
-        return $this->render('index');
+        if(\Yii::$app->user->isGuest){
+            return $this->redirect(['site/login']);
+        }
+        $model = new UserForm();
+        if(\Yii::$app->request->isPost){
+            if( $model->load(\Yii::$app->request->post()) && $model->updateHandle()){
+              return $this->redirect(['index']);
+            }
+        }
+        return $this->render('index',['model'=>$model]);
     }
 
 }

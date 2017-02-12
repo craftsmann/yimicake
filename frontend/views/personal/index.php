@@ -11,9 +11,7 @@
         <div class="user-left">
             <dl>
                 <dt><a href="javascript:void(0)" class="user-info">个人中心</a></dt>
-                <dd class="cur"><a href="#">基本信息</a></dd>
-                <dd><a href="#">联系方式</a></dd>
-                <dd><a href="#">修改密码</a></dd>
+                <dd class="cur"><a href="<?=\yii\helpers\Url::to(['personal/index'])?>">基本信息</a></dd>
             </dl>
             <dl>
                 <dt><a href="javascript:void(0)" class="user-orders">我的订单</a></dt>
@@ -21,8 +19,7 @@
             </dl>
             <dl>
                 <dt><a href="javascript:void(0)" class="user-collect">我的足迹</a></dt>
-                <dd><a href="#">收藏展示</a></dd>
-                <dd><a href="#">积分获得</a></dd>
+                <dd><a href="<?=\yii\helpers\Url::to(['credit/list'])?>">积分获得</a></dd>
             </dl>
         </div>
         <div class="user-right">
@@ -31,39 +28,27 @@
             </div>
             <div class="user-content">
                 <div class="user-form">
-                    <form>
-                        <div class="box_baseinfo">
-                            <span>邮箱地址:</span>
-                            <input type="text" name="emial" disabled="disabled" value="56166115@qq.com">
-                        </div>
-                        <div class="box_baseinfo">
-                            <span>昵&nbsp;&nbsp;&nbsp;&nbsp;称:</span>
-                            <input type="text" name="emial">
-                        </div>
-                        <div class="box_baseinfo">
-                            <span>姓&nbsp;&nbsp;&nbsp;&nbsp;名:</span>
-                            <input type="text" name="emial">
-                        </div>
-                        <div class="box_baseinfo">
-                            <span>手&nbsp;&nbsp;&nbsp;&nbsp;机:</span>
-                            <input type="text" name="emial">
-                        </div>
-                        <div class="box_baseinfo">
-                            <span>性&nbsp;&nbsp;&nbsp;&nbsp;别:</span>
-                            <select name="sex">
-                                <option value="1">男</option>
-                                <option value="2">女</option>
-                            </select>
-                        </div>
-                        <div class="re-sub">
-                            <input type="button" value="保存">
-                        </div>
-                    </form>
+                   <?php $model->sex=!isset(\Yii::$app->user->identity->sex)?'':Yii::$app->user->identity->sex;?>
+                    <?php $form = \yii\widgets\ActiveForm::begin([
+                        'fieldConfig'=>[
+                            'template'=>'<div class="box_baseinfo"><span>{label}</span>{input}</div><div class="error" style="margin:0 0 20px 100px;color:red">{error}</div>'
+                        ]
+                    ]);?>
+                    <?= $form->field($model,'truename')->textInput(['value'=>!isset(\Yii::$app->user->identity->truename)?'':Yii::$app->user->identity->truename]);?>
+                    <?= $form->field($model,'phone')->textInput(['value'=>!isset(\Yii::$app->user->identity->phone)?'':Yii::$app->user->identity->phone]);?>
+                    <?= $form->field($model,'qq')->textInput(['value'=>!isset(\Yii::$app->user->identity->qq)?'':Yii::$app->user->identity->qq]);?>
+                    <?= $form->field($model,'site')->textInput(['value'=>!isset(\Yii::$app->user->identity->site)?'':Yii::$app->user->identity->site]);?>
+                    <?= $form->field($model,'sex')->dropDownList(['男'=>'男','女'=>'女'])?>
+                    <div class="re-sub">
+                        <?=\yii\helpers\Html::submitButton('提交',['placeHolder'=>'提交'])?>
+                    </div>
+                    <?php \yii\widgets\ActiveForm::end();?>
                 </div>
-            </div>
+                </div>
         </div>
     </div>
 </div>
+
 
 <!--================================个人中心结束==================================-->
 
