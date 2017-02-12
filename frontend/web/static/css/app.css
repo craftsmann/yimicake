@@ -226,12 +226,12 @@
 }
 .app-choice .filter {
   border-top: 1px dotted #cccccc;
-  line-height: 35px;
+  line-height: 60px;
 }
 .filter .filter-item {
   width: 6.5%;
   text-align: right;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
 }
 .filter .filter-con {

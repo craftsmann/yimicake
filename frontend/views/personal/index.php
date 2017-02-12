@@ -15,7 +15,7 @@
             </dl>
             <dl>
                 <dt><a href="javascript:void(0)" class="user-orders">我的订单</a></dt>
-                <dd><a href="#">订单明细</a></dd>
+                <dd><a href="<?=\yii\helpers\Url::to(['personal/order'])?>">订单明细</a></dd>
             </dl>
             <dl>
                 <dt><a href="javascript:void(0)" class="user-collect">我的足迹</a></dt>

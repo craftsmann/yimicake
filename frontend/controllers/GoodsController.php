@@ -205,7 +205,7 @@ class GoodsController extends BaseController
         if(Yii::$app->user->isGuest){
             $data = unserialize(base64_decode(Yii::$app->request->cookies->getValue('YIMICAKE')));
             unset($_COOKIE['YIMICAKE']);
-            //var_dump($data);die();
+            
             //清除单个
             if($type=='one'){
                 foreach ($data as $k=>&$v){

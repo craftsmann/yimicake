@@ -20,6 +20,7 @@ class AppAsset extends AssetBundle
     public $js = [
         'static/js/objFade.js',
         'static/js/app.js',
+        'static/plugin/DatePicker/WdatePicker.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -14,4 +14,13 @@ class ChoiceController extends BaseController
         return $this->render('list');
     }
 
+    public function actionCake(){
+
+        return $this->render('cake');
+    }
+
+    public function actionFlower(){
+        return $this->render('flower');
+    }
+
 }

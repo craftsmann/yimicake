@@ -11,13 +11,13 @@ $model = \common\models\Design::find()->joinWith('catename b')->where(['b.name'=
 ?>
 <?php foreach ($model as $v):?>
     <li>
-        <a href="<?=\yii\helpers\Url::to(['choice/cake','war'=>'','obj'=>'','mat'=>'','des'=>$v['id']])?>" target="_blank" title="<?=$v['moname'].'蛋糕'?>"><?=$v['moname'].'蛋糕'?></a>
+        <a href="<?=\yii\helpers\Url::to(['choice/cake','value'=>'','obj'=>'','mat'=>'','object'=>'','des'=>$v['id']])?>"  title="<?=$v['moname'].'蛋糕'?>"><?=$v['moname'].'蛋糕'?></a>
     </li>
 <?php endforeach;?>
 
 <?php foreach ($material as $v):?>
     <li>
-        <a href="<?=\yii\helpers\Url::to(['choice/cake','war'=>'','obj'=>'','mat'=>'','des'=>$v['id']])?>" target="_blank" title="<?=$v['mname'].'蛋糕'?>"><?=$v['mname'].'蛋糕'?></a>
+        <a href="<?=\yii\helpers\Url::to(['choice/cake','value'=>'','obj'=>'','mat'=>'','object'=>'','des'=>$v['id']])?>"  title="<?=$v['mname'].'蛋糕'?>"><?=$v['mname'].'蛋糕'?></a>
     </li>
 <?php endforeach;?>
 

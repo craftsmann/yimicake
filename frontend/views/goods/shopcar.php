@@ -33,7 +33,7 @@ use yii\helpers\Url;
                 <span>
                     合计：<strong class="g_price">0</strong>
                 </span>
-                <a href="<?=Url::to(['order/list'])?>" title="立即结算" target="_blank">立即结算</a>
+                <a class="t-paynow" data-user="<?=!Yii::$app->user->isGuest?1:0;?>" href="<?=Url::to(['order/list'])?>" title="去结算" target="_blank">去结算</a>
             </div>
        </div>
 </div>
