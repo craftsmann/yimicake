@@ -6,6 +6,7 @@
 namespace frontend\controllers;
 
 
+use common\models\Singlepage;
 use frontend\models\LoginForm;
 use frontend\models\SignupForm;
 use yii\captcha\Captcha;
@@ -57,5 +58,15 @@ class SiteController extends Controller
             }
         }
         return $this->render('signup',['model'=>$model]);
+    }
+
+    //站点帮助
+    public function actionHelp(){
+
+        $request = Yii::$app->request;
+        $item = $request->get('item')?$request->get('item'):'logistics';
+        $data = Singlepage::find()->where('view=:view',[':view'=>(string)$item])->one();
+
+        return $this->render('help',['model'=>$data]);
     }
 }

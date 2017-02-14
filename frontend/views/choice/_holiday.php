@@ -5,7 +5,7 @@
  */
 $data = \common\models\Holiday::find()->joinWith('catename')->where(['name'=>'鲜花'])->asArray()->all();
 ?>
-    <a href="" class="hover">不限</a>
+    <a href="<?=\yii\helpers\Url::to(['choice/flower','color'=>isset($_GET['color'])?$_GET['color']:'','material'=>'','holiday'=>'',])?>" <?=($_GET['holiday']==='')?'class="hover"':'';?>>不限</a>
 <?php foreach($data as $v):?>
-    <a href=""><?=$v['hname']?></a>
+    <a href="<?=\yii\helpers\Url::to(['choice/flower','color'=>isset($_GET['color'])?$_GET['color']:'','material'=>isset($_GET['material'])?$_GET['material']:'','holiday'=>$v['id'],])?>" <?=($_GET['holiday']===$v['id'])?'class="hover"':'';?>><?=$v['hname']?></a>
 <?php endforeach;?>

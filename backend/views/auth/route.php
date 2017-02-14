@@ -57,7 +57,7 @@ $this->registerJS($js,\yii\web\View::POS_END);
                     <div class="box role-box">
                        <?php foreach ($data as $v){?>
                         <dl>
-                            <dt>
+                            <dt style="background: #eee;">
                                 <h3>
                                     <?= $v['description']?>
                                     <small>

@@ -456,6 +456,9 @@
   padding-top: 8px;
   background-color: #f95d50;
 }
+.floor .right .tag:hover{
+  color: #fff;
+}
 .wastcake .left .name {
   background-color: #47ba9e;
 }

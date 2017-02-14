@@ -21,15 +21,15 @@ $this->registerJsFile('@web/static/js/detail.js',[\frontend\assets\AppAsset::cla
     <div class="shop-box clear">
         <div class="shop-left fl">
             <div class="img-box">
-                <img style="width: 450px;height: 450px" src="<?='http://localhost/yimicake/frontend/web/'.$v['smimg1']?>">
+                <img style="width: 450px;height: 450px" src="<?=Yii::$app->params['CONFIG']['SITE_DOMINNAME'].$v['smimg1']?>">
             </div>
             <div class="s-bot">
                 <ul>
                     <li style="cursor: pointer" class="s-cur">
-                        <img src="<?='http://localhost/yimicake/frontend/web/'.$v['smimg1']?>">
+                        <img src="<?=Yii::$app->params['CONFIG']['SITE_DOMINNAME'].$v['smimg1']?>">
                     </li>
                     <li style="cursor: pointer">
-                        <img src="<?='http://localhost/yimicake/frontend/web/'.$v['smimg2']?>">
+                        <img src="<?=Yii::$app->params['CONFIG']['SITE_DOMINNAME'].$v['smimg2']?>">
                     </li>
                 </ul>
             </div>

@@ -12,19 +12,19 @@ $material = \common\models\Material::find()->joinWith('catename b')->where(['b.n
 
 <?php foreach ($color as $v):?>
     <li>
-        <a href="<?=\yii\helpers\Url::to(['choice/flower','war'=>'','obj'=>'','color'=>$v['id'],'mat'=>'','des'=>'','hol'=>''])?>" target="_blank" title="<?=$v['coname']?>"><?=$v['coname']?></a>
+        <a href="<?=\yii\helpers\Url::to(['choice/flower','color'=>$v['id'],'material'=>isset($_GET['material'])?$_GET['material']:'','holiday'=>isset($_GET['holiday'])?$_GET['holiday']:'',])?>" target="_blank" title="<?=$v['coname']?>"><?=$v['coname']?></a>
     </li>
 <?php endforeach;?>
 
 <?php foreach ($holiday as $v):?>
     <li>
-        <a href="<?=\yii\helpers\Url::to(['choice/flower','war'=>'','obj'=>'','color'=>'','mat'=>'','des'=>'','hol'=>$v['id']])?>" target="_blank" title="<?=$v['hname']?>"><?=$v['hname']?></a>
+        <a href="<?=\yii\helpers\Url::to(['choice/flower','color'=>isset($_GET['color'])?$_GET['color']:'','material'=>isset($_GET['material'])?$_GET['material']:'','holiday'=>$v['id'],])?>"><?=$v['hname']?></a>
     </li>
 <?php endforeach;?>
 
 <?php foreach ($material as $v):?>
     <li>
-        <a href="<?=\yii\helpers\Url::to(['choice/flower','war'=>'','obj'=>'','color'=>'','mat'=>$v['id'],'des'=>'','hol'=>''])?>" target="_blank" title="<?=$v['mname']?>"><?=$v['mname']?></a>
+        <a href="<?=\yii\helpers\Url::to(['choice/flower','color'=>isset($_GET['color'])?$_GET['color']:'','material'=>$v['id'],'holiday'=>isset($_GET['holiday'])?$_GET['holiday']:'',])?>" target="_blank" title="<?=$v['mname']?>"><?=$v['mname']?></a>
     </li>
 <?php endforeach;?>
 

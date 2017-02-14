@@ -4,7 +4,9 @@
  * @author craftsmann <m13993334619@163.com>
  */
 namespace backend\controllers;
+use Codeception\Command\Shared\Config;
 use common\models\Category;
+use common\models\Conf;
 use Yii;
 
 
@@ -42,8 +44,10 @@ class BaseController extends Controller
     //初始化
     public function init()
     {
+        $conf   = Conf::find()->asArray()->all();
         $params = Category::find()->asArray()->all();
         Yii::$app->params['CATE']=ArrayHelper::map($params,'id','name');
+        Yii::$app->params['CONFIG']=ArrayHelper::map($conf,'name','value');
     }
 
 }

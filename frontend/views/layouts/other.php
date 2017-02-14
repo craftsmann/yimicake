@@ -14,9 +14,9 @@ $value = \common\models\Value::find()->joinWith('catename b')->where(['b.name'=>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <meta name="description" content="伊米蛋糕店">
+    <meta name="description" content="<?=Yii::$app->params['CONFIG']['SITE_DESCRIPTION']?>">
 
-    <title>伊米蛋糕网</title>
+    <title><?=Yii::$app->params['CONFIG']['SITE_KEY_WORDS']?></title>
 
     <?= Html::csrfMetaTags();?>
 
@@ -42,9 +42,9 @@ $value = \common\models\Value::find()->joinWith('catename b')->where(['b.name'=>
                 <a title="我的账户" href="<?=Yii::$app->user->isGuest?Url::to(['site/login']):Url::to(['personal/index'])?>"><?=isset(Yii::$app->user->identity->username)?Yii::$app->user->identity->username:'我'?>的账户</a>
                 <a href="<?=Url::to(['site/logout'])?>" title="登出">退出登录</a>
             <?php endif;?>
-            <a href="">付款方式</a>
-            <a href="">物流配送</a>
-            <a href="">常见问题</a>
+            <a href="<?=\yii\helpers\Url::to(['site/help','item'=>'logistics'])?>" target="_blank">物流配送</a>
+            <a href="<?=\yii\helpers\Url::to(['site/help','item'=>'payway'])?>" target="_blank">付款方式</a>
+            <a href="<?=Url::to(['site/help'])?>" target="_blank">帮助中心</a>
         </div>
     </div>
 </div>
@@ -105,10 +105,10 @@ $value = \common\models\Value::find()->joinWith('catename b')->where(['b.name'=>
         </div>
         <ul class="nav-inner fl">
             <li class="act"><a href="<?=Yii::$app->homeUrl?>">首页</a></li>
-            <li><a href="<?=\yii\helpers\Url::to(['choice/cake','war'=>'','obj'=>'','mat'=>'','des'=>''])?>" title="蛋糕">蛋糕</a></li>
-            <li><a href="<?=\yii\helpers\Url::to(['choice/flower','war'=>'','obj'=>'','color'=>'','mat'=>'','des'=>'','hol'=>''])?>" target="_blank" title="鲜花">鲜花</a></li>
+            <li><a href="<?=\yii\helpers\Url::to(['choice/cake','value'=>'','material'=>'','design'=>'','object'=>'',])?>" target="_blank" title="蛋糕">蛋糕</a></li>
+            <li><a href="<?=\yii\helpers\Url::to(['choice/flower','color'=>'','material'=>'','holiday'=>'',])?>" target="_blank" title="鲜花">鲜花</a></li>
             <?php foreach ($value as $v):?>
-                <li><a href="<?=\yii\helpers\Url::to(['choice/cake','war'=>$v['id'],'obj'=>'','mat'=>'','des'=>''])?>" target="_blank" title="<?=$v['vname'].'蛋糕'?>"><?=$v['vname'].'蛋糕'?></a></li>
+                <li><a href="<?=\yii\helpers\Url::to(['choice/cake','value'=>$v['id'],'material'=>'','design'=>'','object'=>'',])?>" target="_blank" title="<?=$v['vname'].'蛋糕'?>"><?=$v['vname'].'蛋糕'?></a></li>
             <?php endforeach;?>
         </ul>
         <div class="nav-right fr">
@@ -131,61 +131,49 @@ $value = \common\models\Value::find()->joinWith('catename b')->where(['b.name'=>
         <dl class="f-link">
             <dt>购物指南</dt>
             <dd>
-                <a href="#">购物流程</a>
+                <a href="<?=Url::to(['site/help','item'=>'register'])?>">购物流程</a>
             </dd>
             <dd>
-                <a href="#">会员详情</a>
+                <a href="<?=Url::to(['site/help','item'=>'register'])?>">会员介绍</a>
             </dd>
             <dd>
-                <a href="#">联系客服</a>
-            </dd>
-        </dl>
-        <dl class="f-link">
-            <dt>购物指南</dt>
-            <dd>
-                <a href="#">购物流程</a>
-            </dd>
-            <dd>
-                <a href="#">会员详情</a>
-            </dd>
-            <dd>
-                <a href="#">联系客服</a>
+                <a href="<?=Url::to(['site/help','item'=>'register'])?>">联系客服</a>
             </dd>
         </dl>
         <dl class="f-link">
-            <dt>购物指南</dt>
+            <dt>配送方式</dt>
             <dd>
-                <a href="#">购物流程</a>
+                <a href="<?=Url::to(['site/help','item'=>'logistics'])?>">送货上门</a>
             </dd>
             <dd>
-                <a href="#">会员详情</a>
+                <a href="<?=Url::to(['site/help','item'=>'logistics'])?>">门店自取</a>
             </dd>
             <dd>
-                <a href="#">联系客服</a>
-            </dd>
-        </dl>
-        <dl class="f-link">
-            <dt>购物指南</dt>
-            <dd>
-                <a href="#">购物流程</a>
-            </dd>
-            <dd>
-                <a href="#">会员详情</a>
-            </dd>
-            <dd>
-                <a href="#">联系客服</a>
+                <a href="<?=Url::to(['site/help','item'=>'logistics'])?>">配送范围</a>
             </dd>
         </dl>
         <dl class="f-link">
-            <dt>购物指南</dt>
+            <dt>支付方式</dt>
             <dd>
-                <a href="#">购物流程</a>
+                <a href="<?=Url::to(['site/help','item'=>'payway'])?>">在线支付</a>
             </dd>
             <dd>
-                <a href="#">会员详情</a>
+                <a href="<?=Url::to(['site/help','item'=>'payway'])?>">银行汇款</a>
             </dd>
             <dd>
-                <a href="#">联系客服</a>
+                <a href="<?=Url::to(['site/help','item'=>'payway'])?>">货到付款</a>
+            </dd>
+        </dl>
+        <dl class="f-link">
+            <dt>服务支持</dt>
+            <dd>
+                <a href="<?=Url::to(['site/help','item'=>'later'])?>">售后服务</a>
+            </dd>
+            <dd>
+                <a href="<?=Url::to(['site/help','item'=>'later'])?>">退款说明</a>
+            </dd>
+            <dd>
+                <a href="<?=Url::to(['site/help','item'=>'later'])?>">取消订单</a>
             </dd>
         </dl>
         <dl class="f-link">
@@ -203,9 +191,9 @@ $value = \common\models\Value::find()->joinWith('catename b')->where(['b.name'=>
 </div>
 <!--底部结束-->
 <div class="copyright center">
-    甘肃ICP备060194 | yiiframework All Rights Reserved
-    <a target="_blank" href="#">关于我们</a>
-    <a target="_blank" href="#">联系我们</a>
+    <?=Yii::$app->params['CONFIG']['SITE_NUMBER']?> | yimicake All Rights Reserved powered by <a href="http://www.yiiframework.com/" target="_blank">yiiframework</a>
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1791502202&site=qq&menu=yes">关于我们</a>
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1791502202&site=qq&menu=yes">联系我们</a>
 
 </div>
 

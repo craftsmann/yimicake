@@ -9,6 +9,7 @@ use common\helpers\FormatArray;
 use common\models\Category;
 use common\models\Detail;
 use common\models\Goods;
+use common\models\Order;
 use Yii;
 
 
@@ -168,13 +169,16 @@ class GoodsController extends BaseController
     public function actionUpdate(){
 
         $id = Yii::$app->request->get('id');
+
         $model = Goods::find()->where(['id'=>$id])->one();
         $detail = Detail::find()->where(['goods_id'=>$id])->one();
         if(Yii::$app->request->isPost){
-
+            //echo '<pre>';print_r($_POST);echo '</pre>';die();
             $command = Yii::$app->db->createCommand()->update('{{%detail}}', ['content' =>Yii::$app->request->post('Detail')['content']], 'goods_id = '.$id.'')->execute();
-            if($model->load(Yii::$app->request->post()) && $model->save() && $command){
+            if($model->load(Yii::$app->request->post()) && $model->save()){
                 return $this->redirect(['list']);
+            }else{
+                echo '<pre>';print_r($model->getErrors());echo '</pre>';die();
             }
         }
         return $this->render('update',['model'=>$model,'id'=>$id]);
@@ -232,5 +236,11 @@ class GoodsController extends BaseController
             return json_encode($error);
         }
 
+    }
+
+    //订单管理
+    public function actionOrder(){
+        $order = Order::find()->asArray()->all();
+        return $this->render('order',['model'=>$order]);
     }
 }

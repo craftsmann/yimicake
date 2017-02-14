@@ -3,6 +3,7 @@
  * @see https://github.com/craftsmann.
  * @author craftsmann <m13993334619@163.com>
  */
+$this->registerJsFile('@web/static/js/obj_choice.js',[\frontend\assets\AppAsset::className(),'depends'=>'frontend\assets\AppAsset']);
 ?>
 
 <!--内容开始-->
@@ -11,7 +12,7 @@
     <div class="center">
         <div class="app-choice">
             <h3>
-                找到158件相关产品
+                找到<?=count($model)?>件相关产品
             </h3>
             <div class="filter clear">
                 <div class="filter-item fl">
@@ -56,217 +57,41 @@
     <div class="app-container center">
         <div class="box-title clear">
             <div class="app-left fl">
-                <span>排序：</span>
-                <a href="#" class="hover">正序</a>
-                <a href="#">倒序</a>
+                <span>筛选展示：</span>
             </div>
             <div class="app-right fr">
-                共325个商品
+                共<?=count($model)?>个商品
             </div>
         </div>
         <div class="box-con clear">
+            <?= count($model)==0?'<h4 style="margin-left: 20px">暂时没有符合条件的商品......</h4>':'';?>
+            <?php foreach ($model as $v):?>
             <div class="con-box fl">
-                <a href="#" target="_blank">
-                    <img src="static/images/con-box1.jpg" alt="">
+                <a href="<?=\yii\helpers\Url::to(['goods/view','id'=>$v['id']])?>" target="_blank">
+                    <img src="<?=Yii::$app->params['CONFIG']['SITE_DOMINNAME'].$v['smimg2']?>" alt="">
                     <div class="con-btm">
                         <div class="name clear">
-                            <p class="fl">细细的爱</p>
-                            <p class="fr">NO.p451223231</p>
+                            <p class="fl"><?=$v['title']?></p>
+                            <p class="fr">NO.p<?=date('Ymd').$v['id']?></p>
                         </div>
                         <div class="price clear">
                             <p class="money fl">
-                                <big>￥516</big>
+                                <big>￥<?=$v['shopprice']?></big>
                             </p>
                             <p class="purchase fr">
-                                1521人购买
+                                <?=intval($v['salesnum'])+100?>人购买
                             </p>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="con-box fl">
-                <a href="#" target="_blank">
-                    <img src="static/images/con-box1.jpg" alt="">
-                    <div class="con-btm">
-                        <div class="name clear">
-                            <p class="fl">细细的爱</p>
-                            <p class="fr">NO.p451223231</p>
-                        </div>
-                        <div class="price clear">
-                            <p class="money fl">
-                                <big>￥516</big>
-                            </p>
-                            <p class="purchase fr">
-                                1521人购买
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="con-box fl">
-                <a href="#" target="_blank">
-                    <img src="static/images/con-box1.jpg" alt="">
-                    <div class="con-btm">
-                        <div class="name clear">
-                            <p class="fl">细细的爱</p>
-                            <p class="fr">NO.p451223231</p>
-                        </div>
-                        <div class="price clear">
-                            <p class="money fl">
-                                <big>￥516</big>
-                            </p>
-                            <p class="purchase fr">
-                                1521人购买
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="con-box fl">
-                <a href="#" target="_blank">
-                    <img src="static/images/con-box1.jpg" alt="">
-                    <div class="con-btm">
-                        <div class="name clear">
-                            <p class="fl">细细的爱</p>
-                            <p class="fr">NO.p451223231</p>
-                        </div>
-                        <div class="price clear">
-                            <p class="money fl">
-                                <big>￥516</big>
-                            </p>
-                            <p class="purchase fr">
-                                1521人购买
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="con-box fl">
-                <a href="#" target="_blank">
-                    <img src="static/images/con-box1.jpg" alt="">
-                    <div class="con-btm">
-                        <div class="name clear">
-                            <p class="fl">细细的爱</p>
-                            <p class="fr">NO.p451223231</p>
-                        </div>
-                        <div class="price clear">
-                            <p class="money fl">
-                                <big>￥516</big>
-                            </p>
-                            <p class="purchase fr">
-                                1521人购买
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="con-box fl">
-                <a href="#" target="_blank">
-                    <img src="static/images/con-box1.jpg" alt="">
-                    <div class="con-btm">
-                        <div class="name clear">
-                            <p class="fl">细细的爱</p>
-                            <p class="fr">NO.p451223231</p>
-                        </div>
-                        <div class="price clear">
-                            <p class="money fl">
-                                <big>￥516</big>
-                            </p>
-                            <p class="purchase fr">
-                                1521人购买
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="con-box fl">
-                <a href="#" target="_blank">
-                    <img src="static/images/con-box1.jpg" alt="">
-                    <div class="con-btm">
-                        <div class="name clear">
-                            <p class="fl">细细的爱</p>
-                            <p class="fr">NO.p451223231</p>
-                        </div>
-                        <div class="price clear">
-                            <p class="money fl">
-                                <big>￥516</big>
-                            </p>
-                            <p class="purchase fr">
-                                1521人购买
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="con-box fl">
-                <a href="#" target="_blank">
-                    <img src="static/images/con-box1.jpg" alt="">
-                    <div class="con-btm">
-                        <div class="name clear">
-                            <p class="fl">细细的爱</p>
-                            <p class="fr">NO.p451223231</p>
-                        </div>
-                        <div class="price clear">
-                            <p class="money fl">
-                                <big>￥516</big>
-                            </p>
-                            <p class="purchase fr">
-                                1521人购买
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="con-box fl">
-                <a href="#" target="_blank">
-                    <img src="static/images/con-box1.jpg" alt="">
-                    <div class="con-btm">
-                        <div class="name clear">
-                            <p class="fl">细细的爱</p>
-                            <p class="fr">NO.p451223231</p>
-                        </div>
-                        <div class="price clear">
-                            <p class="money fl">
-                                <big>￥516</big>
-                            </p>
-                            <p class="purchase fr">
-                                1521人购买
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="con-box fl">
-                <a href="#" target="_blank">
-                    <img src="static/images/con-box1.jpg" alt="">
-                    <div class="con-btm">
-                        <div class="name clear">
-                            <p class="fl">细细的爱</p>
-                            <p class="fr">NO.p451223231</p>
-                        </div>
-                        <div class="price clear">
-                            <p class="money fl">
-                                <big>￥516</big>
-                            </p>
-                            <p class="purchase fr">
-                                1521人购买
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="box-con">
-                <div class="page">
-                    <a href="">首页</a>
-                    <a href="">1</a>
-                    <a href="">2</a>
-                    <a href="" class="active">3</a>
-                    <a href="">4</a>
-                    <a href="">5</a>
-                    <a href="">6</a>
-                    <a href="">尾页</a>
-                </div>
-            </div>
+            <?php endforeach;?>
+            <?=\yii\widgets\LinkPager::widget([
+                'pagination'=>$pages,
+                'firstPageLabel' => '首页',
+                'lastPageLabel' => '尾页',
+                'options' => ['class' => 'page'],
+            ])?>
 
         </div>
     </div>
@@ -274,4 +99,9 @@
 <!--==================================列表结束==================================-->
 
 <!--内容结束-->
+<?php $js = '
+  $(".app-choice").Choice();
 
+';
+$this->registerJS($js);
+?>

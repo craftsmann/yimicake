@@ -14,7 +14,8 @@ $js ='
       area: [\'600px\', \'640px\'], //宽高
       content:"'.Url::to(['user/set']).'"});  
    })';
-
+$conf   = \common\models\Conf::find()->asArray()->all();
+Yii::$app->params['CONFIG']=\yii\helpers\ArrayHelper::map($conf,'name','value');
 $this->registerJS($js,\yii\web\View::POS_END);
 
 ?>
@@ -50,7 +51,7 @@ $this->registerJS($js,\yii\web\View::POS_END);
 
                  <!--logo and iconic logo start-->
                  <div class="logo">
-                     <a href="index.html"><img src="static/images/logo.png" alt=""></a>
+                     <a href="<?=Yii::$app->homeUrl?>"><img src="static/images/logo.png" alt=""></a>
                  </div>
 
                  <div class="logo-icon text-center">
@@ -156,7 +157,7 @@ $this->registerJS($js,\yii\web\View::POS_END);
                              </li>
                              <li>
                                  <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                     <img src="<?= isset(Yii::$app->user->identity->photo)?'http://localhost/yimicake/frontend/web/'.Yii::$app->user->identity->photo:'static/images/photos/user-avatar.png'?>" alt="">
+                                     <img src="<?= isset(Yii::$app->user->identity->photo)?(Yii::$app->params['CONFIG']['SITE_DOMINNAME'].Yii::$app->user->identity->photo):'static/images/photos/user-avatar.png'?>" alt="">
                                      <?= isset(Yii::$app->user->identity->username)?Yii::$app->user->identity->username:''?>
 
                                      <span class="caret"></span>

@@ -42,7 +42,6 @@ $this->registerCss($css);
                         <tr>
                             <th><input type="checkbox" class="checkall"></th>
                             <th>数据表</th>
-                            <th>数据大小(字节)</th>
                             <th>数据条数</th>
                             <th>数据描述</th>
                             <th>表引擎</th>
@@ -58,7 +57,6 @@ $this->registerCss($css);
                                       <input type="checkbox" class="checkone" value="<?=$v['Name']?>">
                                   </td>
                                   <td><?=$v['Name']?></td>
-                                  <td><?=$v['Data_length']?></td>
                                   <td><?=$v['Rows']?></td>
                                   <td><?=$v['Comment']!==''?$v['Comment']:"未补充"?></td>
                                   <td><?=$v['Engine']?></td>

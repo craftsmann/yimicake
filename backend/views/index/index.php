@@ -17,7 +17,15 @@ $js = '
 });
 ';
 $this->registerJS($js);
+
+$order = \common\models\Order::find()->count();
+$user  = \common\models\User::find()->count();
+$goods = \common\models\Goods::find()->count();
+$comments = \common\models\Comments::find()->count();
+
+
 ?>
+
 <div>
     <div class="page-heading">
         <h4>仪表盘</h4>
@@ -39,8 +47,8 @@ $this->registerJS($js);
                                 <i class="fa fa-gavel"></i>
                             </div>
                             <div class="state-value">
-                                <div class="value">230</div>
-                                <div class="title">新订单</div>
+                                <div class="value"><?=$order?></div>
+                                <div class="title">总订单</div>
                             </div>
                         </div>
                     </div>
@@ -50,8 +58,8 @@ $this->registerJS($js);
                                 <i class="fa fa-user"></i>
                             </div>
                             <div class="state-value">
-                                <div class="value">2</div>
-                                <div class="title">管理员在线</div>
+                                <div class="value"><?=$user?></div>
+                                <div class="title">总会员数</div>
                             </div>
                         </div>
                     </div>
@@ -63,7 +71,7 @@ $this->registerJS($js);
                                 <i class="fa fa-comment"></i>
                             </div>
                             <div class="state-value">
-                                <div class="value">22014</div>
+                                <div class="value"><?=$comments?></div>
                                 <div class="title">总共评论</div>
                             </div>
                         </div>
@@ -74,7 +82,7 @@ $this->registerJS($js);
                                 <i class="fa fa-shopping-cart"></i>
                             </div>
                             <div class="state-value">
-                                <div class="value">39012件</div>
+                                <div class="value"><?=$goods?>件</div>
                                 <div class="title">全部产品</div>
                             </div>
                         </div>

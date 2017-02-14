@@ -10,6 +10,8 @@ use yii\widgets\ActiveForm;
 $this->title="商品更新";
 $css = 'input{width:56px;}select{height:25px;}';
 $this->registerCss($css);
+$cate = (new \yii\db\Query())->select('*')->from('{{%category}}')->all();
+$data = \yii\helpers\ArrayHelper::map($cate,'id','name');
 ?>
 <div>
     <div class="page-heading">
@@ -60,7 +62,7 @@ $this->registerCss($css);
                                 <?= $form->field($model,'title')->textInput()?>
                             </div>
                             <div class="form-group">
-                                <?=$form->field($model,'cateid')->dropDownList(['10'=>'鲜花','0'=>'蛋糕'],['prompt' => '请下拉选择'])?>
+                                <?=$form->field($model,'cateid')->dropDownList($data,['prompt' => '请下拉选择'])?>
                             </div>
 
                             <div class="form-group">
@@ -134,14 +136,16 @@ $this->registerCss($css);
                 <div class="col-sm-12">
                     <section class="panel">
                         <div class="panel-body">
-                            <?php $detail = \common\models\Detail::findOne(['id'=>$id])?>
-                            <?=
-                            \yii\redactor\widgets\Redactor::widget([
+                            <?php $detail = \common\models\Detail::findOne(['goods_id'=>$id])?>
+                            <?= \yii\redactor\widgets\Redactor::widget([
                                 'model' => $detail,
                                 'attribute' => 'content',
                                 'clientOptions' => [
                                     'lang' => 'zh_cn',
                                     'minHeight'=> 400, // pixels
+                                    'imageManagerJson' => ['/redactor/upload/image-json'],
+                                    'imageUpload' => ['/redactor/upload/image'],
+                                    'fileUpload' => ['/redactor/upload/file'],
                                     'plugins' => ['clips', 'fontcolor','imagemanager','fullscreen','table']
                                 ]
                             ]);

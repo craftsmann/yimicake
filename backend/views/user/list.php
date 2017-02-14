@@ -163,7 +163,7 @@ $this->registerCss($css);
                             <td style="width: 10px"><input class="check-item" type="checkbox"  name="Select[]" value="<?=$v['id']?>"></td>
                             <td><?=$v['username']?></td>
                             <td><?=$v['sex']?></td>
-                            <td><img alt="头像" style="width:30px;height:30px;"  src="<?= isset($v['photo'])?'http://localhost/yimicake/frontend/web/'.$v['photo']:'static/images/photos/user-avatar.png'?>" class="media-object"></td>
+                            <td><img alt="头像" style="width:30px;height:30px;"  src="<?= $v['photo']!==''?(Yii::$app->params['CONFIG']['SITE_DOMINNAME'].$v['photo']):'static/images/photos/user-avatar.png'?>" class="media-object"></td>
                             <td><?=$v['email']?></td>
                             <td><?=$v['qq']?></td>
                             <td><?=$v['phone']?></td>

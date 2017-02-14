@@ -10,7 +10,7 @@
 <?php foreach ($recommend as $v):?>
     <li>
         <a href="<?=\yii\helpers\Url::to(['goods/view','id'=>$v['id']])?>" target="_blank" title="<?=$v['title']?>">
-            <img src="<?='http://localhost/yimicake/frontend/web/'.$v['midimg']?>">
+            <img src="<?=Yii::$app->params['CONFIG']['SITE_DOMINNAME'].$v['midimg']?>">
         </a>
     </li>
 <?php endforeach;?>
